@@ -9317,6 +9317,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+--- !u!114 &1263005363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+  m_PrefabInstance: {fileID: 1263005362}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1275766375
 GameObject:
   m_ObjectHideFlags: 0
@@ -16057,6 +16068,7 @@ GameObject:
   - component: {fileID: 543450653490642928}
   - component: {fileID: 919132149237622092}
   - component: {fileID: 919132149237622091}
+  - component: {fileID: 919132149237622093}
   m_Layer: 0
   m_Name: player_controller
   m_TagString: Untagged
@@ -16076,6 +16088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77a2e2b78fb1734ea89ca83419ee755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joystick: {fileID: 1263005363}
+  animator: {fileID: 919132149237622093}
 --- !u!143 &919132149237622092
 CharacterController:
   m_ObjectHideFlags: 0
@@ -16094,6 +16108,27 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!95 &919132149237622093
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149237622090}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 4d77a5a0ef05da748813f0e3d56088d3, type: 3}
+  m_Controller: {fileID: 9100000, guid: e4c25f2b8e693ab438d07c6fc0b5a9d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &936311780723941090
 Transform:
   m_ObjectHideFlags: 0
