@@ -3,7 +3,7 @@ using Imba.Utils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace DenkKits.GameServices.SaveData
+namespace GreiB.GameServices.SaveData
 {
     public class SaveDataHandler : ManualSingletonMono<SaveDataHandler>
     {

@@ -1,8 +1,7 @@
 using _GAME.Scripts.Views;
-using DenkKits.GameServices.SaveData;
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIPopup;
-using DenkKits.UIManager.Scripts.UIView;
+using GreiB.GameServices.SaveData;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIPopup;
 using Imba.Utils;
 using UnityEngine;
 
@@ -10,9 +9,13 @@ namespace _GAME.Scripts.Controllers
 {
     public class GameController : ManualSingletonMono<GameController>
     {
+        [SerializeField] private GameHud gameHud;
+
         private bool _isGamePaused = false;
         private int _userScore = 0;
         private GameView _gameView;
+
+        public GameHud GameHud => gameHud;
 
         public override void Awake()
         {
@@ -21,10 +24,9 @@ namespace _GAME.Scripts.Controllers
 
         void Start()
         {
-            _gameView = UIManager.Instance.ViewManager.GetViewByName<GameView>(UIViewName.GameView);
-            UIManager.Instance.ViewManager.ShowView(UIViewName.GameView);
-            UIManager.Instance.HideTransition(() => { });
-
+            //_gameView = UIManager.Instance.ViewManager.GetViewByName<GameView>(UIViewName.GameView);
+            //UIManager.Instance.ViewManager.ShowView(UIViewName.GameView);
+            //UIManager.Instance.HideTransition(() => { });
         }
 
         void Update()

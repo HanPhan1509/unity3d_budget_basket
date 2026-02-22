@@ -5,10 +5,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform model;
-    private bool _allowMove = true;
-    private string _currentAnim = "idle";
-    
-    private Vector3 velocity;
 
     [Header("Movement")]
     [SerializeField] private Joystick joystick;
@@ -19,6 +15,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Joystick joystickRotation;
     [SerializeField] private float lookSensitivity = 120f;
     [SerializeField] private float maxLookAngle = 80f;
+
+    private float xRotation = 0f;
+    private bool _allowMove = true;
+    private string _currentAnim = "idle";
+    private Vector3 velocity;
 
     private void Start()
     {
@@ -32,9 +33,6 @@ public class PlayerController : MonoBehaviour
     {
         if(_allowMove)
         {
-            //Vector2 dir = joystick.Direction;
-            //bool isIdle = dir.x == 0 && dir.y == 0;
-
             HandleMove();
             HandleLook();
 
@@ -67,7 +65,6 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    private float xRotation = 0f;
     void HandleLook()
     {
         Vector2 lookInput = joystickRotation.Direction;
@@ -91,6 +88,5 @@ public class PlayerController : MonoBehaviour
         animator.ResetTrigger(_currentAnim);
         _currentAnim = name;
         animator.SetTrigger(_currentAnim);
-
     }
 }

@@ -1,6 +1,6 @@
 
 
-namespace DenkKits.UIManager.Scripts.UIAnimation
+namespace GreiB.UIManager.Scripts.UIAnimation
 {
     /// <summary> Describes the types of animation available for buttons (and similar components) </summary>
     public enum ButtonAnimationType

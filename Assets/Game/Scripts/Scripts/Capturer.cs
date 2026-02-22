@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace DenkKits.Sample.Scripts
+namespace GreiB.Sample.Scripts
 {
     /// <summary>
     /// Assign this script to a GameObject in the scene to capture screenshots.

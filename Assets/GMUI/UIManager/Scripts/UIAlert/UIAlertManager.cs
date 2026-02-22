@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace DenkKits.UIManager.Scripts.UIAlert
+namespace GreiB.UIManager.Scripts.UIAlert
 {
 	public enum AlertType
 	{

@@ -2,10 +2,10 @@
 // Author: Kaka
 // Created: 2019/08
 
-using DenkKits.GameServices.Audio.Scripts;
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIAnimation;
-using DenkKits.UIManager.Scripts.UIButton;
+using GreiB.GameServices.Audio.Scripts;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.UIButton;
 using UnityEngine;
 using UnityEditor;
 

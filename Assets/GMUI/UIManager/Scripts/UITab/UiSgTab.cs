@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace DenkKits.UIManager.Scripts.UITab
+namespace GreiB.UIManager.Scripts.UITab
 {
 	[RequireComponent(typeof(Button))]
 	[ExecuteInEditMode]

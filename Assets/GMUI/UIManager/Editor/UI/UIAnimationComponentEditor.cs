@@ -1,7 +1,7 @@
 
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIAnimation;
-using DenkKits.UIManager.Scripts.UIView;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.UIView;
 using UnityEngine;
 using UnityEditor;
 

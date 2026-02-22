@@ -1,9 +1,9 @@
 
 
 using System;
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIAnimation;
-using DenkKits.UIManager.Scripts.UIPopup;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.UIPopup;
 using DG.DOTweenEditor;
 using DG.Tweening;
 using UnityEngine;

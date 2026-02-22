@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace DenkKits.UIManager.Scripts.UIAnimation
+namespace GreiB.UIManager.Scripts.UIAnimation
 {
     public static class UIAnimator
     {

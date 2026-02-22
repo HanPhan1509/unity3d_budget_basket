@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DenkKits.GameServices.Audio.Scripts
+namespace GreiB.GameServices.Audio.Scripts
 {
     
     [System.Serializable]

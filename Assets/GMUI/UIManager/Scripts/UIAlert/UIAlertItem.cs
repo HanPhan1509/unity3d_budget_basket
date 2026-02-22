@@ -9,7 +9,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace DenkKits.UIManager.Scripts.UIAlert
+namespace GreiB.UIManager.Scripts.UIAlert
 {
 
     public class UIAlertItem : MonoBehaviour

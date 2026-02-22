@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace DenkKits.UIManager.Scripts.UICanvas
+namespace GreiB.UIManager.Scripts.UICanvas
 {
     /// <summary>
     /// UI Canvas: auto setup camera, auto align UI for north device

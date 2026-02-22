@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DenkKits.GameServices.Audio.Scripts
+namespace GreiB.GameServices.Audio.Scripts
 {
     [CreateAssetMenu(fileName = "AudioDatabase", menuName = "AudioSO/Audio Database")]
     public class AudioDatabase : ScriptableObject

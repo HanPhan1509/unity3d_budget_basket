@@ -1,6 +1,6 @@
 
 
-using DenkKits.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.UIAnimation;
 using UnityEditor;
 using UnityEngine;
 

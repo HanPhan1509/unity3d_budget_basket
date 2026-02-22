@@ -1,9 +1,9 @@
 using _GAME.Scripts.Popup;
-using DenkKits.GameServices.Audio.Scripts;
-using DenkKits.GameServices.SaveData;
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIPopup;
-using DenkKits.UIManager.Scripts.UIView;
+using GreiB.GameServices.Audio.Scripts;
+using GreiB.GameServices.SaveData;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIPopup;
+using GreiB.UIManager.Scripts.UIView;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;

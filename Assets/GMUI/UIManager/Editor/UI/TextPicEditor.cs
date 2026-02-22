@@ -1,5 +1,5 @@
 
-using DenkKits.UIManager.Scripts.UIText;
+using GreiB.UIManager.Scripts.UIText;
 using UnityEditor;
 using UnityEngine;
 using TextEditor = UnityEditor.UI.TextEditor;

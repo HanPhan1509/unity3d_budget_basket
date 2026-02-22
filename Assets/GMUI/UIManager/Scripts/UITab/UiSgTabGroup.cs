@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DenkKits.UIManager.Scripts.UITab
+namespace GreiB.UIManager.Scripts.UITab
 {
 	public class UiSgTabGroup : MonoBehaviour
 	{

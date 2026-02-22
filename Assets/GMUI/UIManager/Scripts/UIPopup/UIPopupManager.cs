@@ -1,11 +1,11 @@
 ﻿
 using System.Collections.Generic;
 using System.Linq;
-using DenkKits.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.Base;
 using Imba.UI;
 using UnityEngine;
 
-namespace DenkKits.UIManager.Scripts.UIPopup
+namespace GreiB.UIManager.Scripts.UIPopup
 {
     /// <summary>
     /// Manage all popups

@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace DenkKits.UIManager.Scripts.UITab
+namespace GreiB.UIManager.Scripts.UITab
 {
     [RequireComponent(typeof(Image))]
     public class CustomizeTabBtn : MonoBehaviour, IPointerClickHandler, IPointerExitHandler

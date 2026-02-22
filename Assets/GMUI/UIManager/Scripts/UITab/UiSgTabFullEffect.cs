@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace DenkKits.UIManager.Scripts.UITab
+namespace GreiB.UIManager.Scripts.UITab
 {
     public class UiSgTabFullEffect : UiSgTabBaseEffect
     {

@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace DenkKits.UIManager.Scripts.UIText
+namespace GreiB.UIManager.Scripts.UIText
 {
 // Image according to the label inside the name attribute to load, read from the Resources directory. The size of the image is controlled by the size property.
 // Use: <quad name=NAME size=25 width=1 />

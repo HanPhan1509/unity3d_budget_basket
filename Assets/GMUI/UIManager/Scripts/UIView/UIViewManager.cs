@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DenkKits.UIManager.Scripts.UIView
+namespace GreiB.UIManager.Scripts.UIView
 {
     public class UIViewManager : MonoBehaviour
     {

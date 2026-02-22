@@ -4,9 +4,9 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine.UI;
 using System.Linq;
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIAnimation;
-using DenkKits.UIManager.Scripts.UIPopup;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.UIPopup;
 using Imba.UI;
 using UnityEditor.SceneManagement;
 

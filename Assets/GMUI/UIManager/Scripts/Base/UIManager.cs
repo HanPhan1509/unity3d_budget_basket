@@ -1,7 +1,7 @@
 ﻿
-using DenkKits.UIManager.Scripts.UIAlert;
-using DenkKits.UIManager.Scripts.UIPopup;
-using DenkKits.UIManager.Scripts.UIView;
+using GreiB.UIManager.Scripts.UIAlert;
+using GreiB.UIManager.Scripts.UIPopup;
+using GreiB.UIManager.Scripts.UIView;
 using DG.Tweening;
 using Imba.UI;
 using Imba.Utils;
@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-namespace DenkKits.UIManager.Scripts.Base
+namespace GreiB.UIManager.Scripts.Base
 {
     /// <summary>
     /// UIManager: Manage all UI element include Popups, Views, Notices, Alert ...

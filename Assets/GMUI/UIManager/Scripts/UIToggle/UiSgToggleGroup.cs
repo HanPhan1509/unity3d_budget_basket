@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DenkKits.UIManager.Scripts.UIToggle
+namespace GreiB.UIManager.Scripts.UIToggle
 {
 	public class UiSgToggleGroup : MonoBehaviour
 	{

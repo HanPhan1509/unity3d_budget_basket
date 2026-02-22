@@ -1,7 +1,7 @@
 using Imba.Utils;
 using UnityEngine;
 
-namespace DenkKits.GameServices
+namespace GreiB.GameServices
 {
     [CreateAssetMenu(fileName = "GameSettings", menuName = "ResourceConfig/GameSettings")]
     public class GameSettings : AutoSingletonMono<GameSettings>

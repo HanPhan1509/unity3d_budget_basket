@@ -1,4 +1,4 @@
-﻿namespace DenkKits.UIManager.Scripts.UIView
+﻿namespace GreiB.UIManager.Scripts.UIView
 {
     public enum UIViewName
     {

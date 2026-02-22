@@ -3,7 +3,7 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 
-namespace DenkKits.UIManager.Scripts.UIAnimation
+namespace GreiB.UIManager.Scripts.UIAnimation
 {
     
     /// <summary> Describes types of animations </summary>

@@ -1,4 +1,4 @@
-﻿namespace DenkKits.UIManager.Scripts.Base
+﻿namespace GreiB.UIManager.Scripts.Base
 {
     public enum VisibilityState
     {

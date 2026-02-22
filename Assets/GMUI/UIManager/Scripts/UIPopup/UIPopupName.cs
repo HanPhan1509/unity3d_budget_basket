@@ -1,4 +1,4 @@
-﻿namespace DenkKits.UIManager.Scripts.UIPopup
+﻿namespace GreiB.UIManager.Scripts.UIPopup
 {
     /// <summary>
     /// Defines all of popup in game

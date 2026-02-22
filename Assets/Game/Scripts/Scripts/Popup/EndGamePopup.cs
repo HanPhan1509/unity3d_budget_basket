@@ -1,6 +1,6 @@
 using _GAME.Scripts;
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIPopup;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIPopup;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;

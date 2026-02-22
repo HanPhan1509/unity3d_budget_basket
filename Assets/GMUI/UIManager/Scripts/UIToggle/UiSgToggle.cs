@@ -1,7 +1,7 @@
 ﻿using Imba.UI;
 using UnityEngine;
 
-namespace DenkKits.UIManager.Scripts.UIToggle
+namespace GreiB.UIManager.Scripts.UIToggle
 {
 	public class UiSgToggle : MonoBehaviour
 	{

@@ -1,7 +1,7 @@
 ﻿
 
 
-using DenkKits.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.UIAnimation;
 using UnityEditor;
 using UnityEngine;
 using Imba.UI;
@@ -56,7 +56,7 @@ namespace Imba.Editor.UI
                 DrawProperty(PropertyName.From, property, "From");
                 DrawProperty(PropertyName.To, property, "To");      
             }
-            else if ((Direction) Direction.enumValueIndex == DenkKits.UIManager.Scripts.UIAnimation.Direction.CustomPosition)
+            else if ((Direction) Direction.enumValueIndex == GreiB.UIManager.Scripts.UIAnimation.Direction.CustomPosition)
             {
                // DrawProperty(PropertyName.From, property, "From");
                 DrawProperty(PropertyName.CustomPosition, property, "CustomPosition");
@@ -92,7 +92,7 @@ namespace Imba.Editor.UI
                 Direction = DrawProperty(PropertyName.Direction, property, "Direction");
             }
             
-            if((Direction)Direction.enumValueIndex == DenkKits.UIManager.Scripts.UIAnimation.Direction.CustomPosition)
+            if((Direction)Direction.enumValueIndex == GreiB.UIManager.Scripts.UIAnimation.Direction.CustomPosition)
                 DrawProperty(PropertyName.CustomPosition, property, "CustomPosition");
            
             DrawLineEaseTypeEaseAnimationCurve( property);

@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace DenkKits.UIManager.Scripts.UIPopup
+namespace GreiB.UIManager.Scripts.UIPopup
 {
 	public class UIMessageBox : UIPopup
 	{

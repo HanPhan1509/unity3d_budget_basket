@@ -1,14 +1,14 @@
 using System;
 using System.Collections;
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIAnimation;
 using DG.Tweening;
 using Imba.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 
-namespace DenkKits.UIManager.Scripts.UIPopup
+namespace GreiB.UIManager.Scripts.UIPopup
 {
     /// <summary>
     /// Base class for all ui popup

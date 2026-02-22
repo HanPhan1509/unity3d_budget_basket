@@ -1,11 +1,11 @@
 
 using System.Collections;
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIAnimation;
 using Imba.UI;
 using UnityEngine;
 
-namespace DenkKits.UIManager.Scripts.UIPopup
+namespace GreiB.UIManager.Scripts.UIPopup
 {
     public enum AfterHideBehaviour
     {

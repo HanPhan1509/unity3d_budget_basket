@@ -4,13 +4,13 @@
 
 using System;
 using System.Collections;
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIView;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIView;
 using Imba.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace DenkKits.UIManager.Scripts.UIAnimation
+namespace GreiB.UIManager.Scripts.UIAnimation
 {
     
     /// <summary>

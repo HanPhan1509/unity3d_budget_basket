@@ -1,9 +1,9 @@
 ﻿using System;
-using DenkKits.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.UIAnimation;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace DenkKits.UIManager.Scripts.Base
+namespace GreiB.UIManager.Scripts.Base
 {
     /// <summary> Base class for any UI component that has a RectTransform and also needs to have the Canvas, GraphicRaycaster and CanvasGroup components attached </summary>
     [Serializable]

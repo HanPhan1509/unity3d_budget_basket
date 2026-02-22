@@ -1,8 +1,8 @@
 ﻿using System;
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIAnimation;
 
-namespace DenkKits.UIManager.Scripts.UIView
+namespace GreiB.UIManager.Scripts.UIView
 {
     [Serializable]
     public class UIViewBehavior

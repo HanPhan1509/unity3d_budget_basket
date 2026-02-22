@@ -1,5 +1,5 @@
 ﻿
-namespace DenkKits.GameServices.Audio.Scripts
+namespace GreiB.GameServices.Audio.Scripts
 {
     public enum AudioName
     {

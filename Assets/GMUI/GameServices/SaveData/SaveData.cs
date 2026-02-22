@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DenkKits.GameServices.SaveData
+namespace GreiB.GameServices.SaveData
 {
     [Serializable]
     public class SaveData

@@ -3,7 +3,7 @@
 // Created: 2019/08
 
 using System;
-using DenkKits.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.UIAnimation;
 using UnityEditor;
 using UnityEngine;
 //using PropertyName = Imba.UI.PropertyName;

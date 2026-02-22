@@ -1,7 +1,7 @@
 using System;
-using DenkKits.GameServices.Audio.Scripts;
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIPopup;
+using GreiB.GameServices.Audio.Scripts;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIPopup;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DenkKits.UIManager.Scripts.Base
+namespace GreiB.UIManager.Scripts.Base
 {
 	/// <summary>
 	/// Base UI component, support sorting order for UI, Popup ...

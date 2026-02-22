@@ -1,13 +1,13 @@
 ﻿
 using System;
 using System.Collections;
-using DenkKits.UIManager.Scripts.Base;
-using DenkKits.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIAnimation;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace DenkKits.UIManager.Scripts.UIButton
+namespace GreiB.UIManager.Scripts.UIButton
 {
 	[ExecuteInEditMode]
 	[RequireComponent(typeof(Button))]

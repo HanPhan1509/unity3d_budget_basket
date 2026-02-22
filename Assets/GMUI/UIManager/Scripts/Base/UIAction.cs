@@ -1,9 +1,9 @@
 ﻿using System;
-using DenkKits.GameServices.Audio.Scripts;
+using GreiB.GameServices.Audio.Scripts;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace DenkKits.UIManager.Scripts.Base
+namespace GreiB.UIManager.Scripts.Base
 {
     [Serializable]
     public class UIAction

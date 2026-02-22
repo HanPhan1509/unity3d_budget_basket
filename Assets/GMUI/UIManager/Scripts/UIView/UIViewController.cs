@@ -1,10 +1,10 @@
 ﻿
-using DenkKits.UIManager.Scripts.UIAnimation;
+using GreiB.UIManager.Scripts.UIAnimation;
 using Imba.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace DenkKits.UIManager.Scripts.UIView
+namespace GreiB.UIManager.Scripts.UIView
 {
     
     /// <summary>

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace DenkKits.UIManager.Scripts.UITab
+namespace GreiB.UIManager.Scripts.UITab
 {
     public class CustomizeTabGroup : MonoBehaviour
     {

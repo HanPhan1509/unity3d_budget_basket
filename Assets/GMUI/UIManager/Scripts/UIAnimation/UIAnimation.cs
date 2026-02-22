@@ -5,7 +5,7 @@
 using System;
 using UnityEngine;
 
-namespace DenkKits.UIManager.Scripts.UIAnimation
+namespace GreiB.UIManager.Scripts.UIAnimation
 {
     [Serializable]
     public class UIAnimation
