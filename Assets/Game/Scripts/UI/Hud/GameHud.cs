@@ -3,6 +3,7 @@ using GreiB.GameServices.Audio.Scripts;
 using GreiB.UIManager.Scripts.Base;
 using GreiB.UIManager.Scripts.UIPopup;
 using UnityEngine;
+using static PopupListProducts;
 
 public class GameHud : MonoBehaviour
 {
@@ -39,6 +40,6 @@ public class GameHud : MonoBehaviour
     private void OnOpenProductListInStall(Stall stall)
     {
         //open UI
-        UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupListProducts);
+        UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupListProducts, new PopupListProductsParam { stall = stall });
     }
 }

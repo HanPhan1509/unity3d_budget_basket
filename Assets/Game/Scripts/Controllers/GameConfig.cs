@@ -12,8 +12,9 @@ public enum StallID
 }
 
 [Serializable]
-public class Products
+public class Product
 {
+    public string id;
     public string Name;
     //public string Description;
     public int Price;
@@ -24,11 +25,11 @@ public class Products
 public class Stall
 {
     public StallID StallID;
-    public List<Products> Products;
+    public List<Product> Products;
     public Sprite Preview;
 }
 
 public class GameConfig : ManualSingletonMono<GameConfig>
 {
-    
+    public int MaxItemInShoppingCart = 3;
 }

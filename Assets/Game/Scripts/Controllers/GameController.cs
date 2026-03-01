@@ -3,6 +3,8 @@ using GreiB.GameServices.SaveData;
 using GreiB.UIManager.Scripts.Base;
 using GreiB.UIManager.Scripts.UIPopup;
 using Imba.Utils;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _GAME.Scripts.Controllers
@@ -74,5 +76,44 @@ namespace _GAME.Scripts.Controllers
             UIManager.Instance.PopupManager.ShowPopup(UIPopupName.EndGamePopup, param);
         }
 
+
+        
+        private List<Product> _products = new List<Product>();
+        public bool IsInShoppingCart(string productId)
+        {
+            return GetProductInCart(productId) != null;
+        }
+
+        public Product GetProductInCart(string productId) {
+            return _products.Find(x => x.id == productId);
+        }
+
+        public bool AddProductInCart(Product product)
+        {
+            if(product == null) 
+                return false;
+
+            //Full cart need upgrade
+            if(_products.Count >= GameConfig.Instance.MaxItemInShoppingCart)
+                return false;
+
+            if(IsInShoppingCart(product.id))
+                return false;
+
+            _products.Add(product);
+            return true;
+        }
+
+        public bool RemoveProductInCart(string productId)
+        {
+            if(string.IsNullOrEmpty(productId)) return false;
+            if (IsInShoppingCart(productId))
+            {
+                var item = GetProductInCart(productId);
+                _products.Remove(item);
+                return true;
+            }
+            return false;
+        }
     }
 }
