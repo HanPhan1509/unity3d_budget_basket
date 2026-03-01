@@ -5,8 +5,7 @@
     /// </summary>
     public enum UIPopupName
     {
-        InventoryPopup = 1,
-        SettingPopup = 2,
+        SettingPopup = 1,
         EndGamePopup = 3,
         MessageBox = 4,
         ShopPopup = 5,
@@ -14,5 +13,7 @@
         LeaderBoardPopup = 7,
         GameModePopup = 8,
         TutorialPopup = 9,
+
+        PopupListProducts = 10,
     }
 }

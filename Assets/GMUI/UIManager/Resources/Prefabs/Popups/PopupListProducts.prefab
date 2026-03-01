@@ -2114,6 +2114,7 @@ GameObject:
   - component: {fileID: 7481002273549842277}
   - component: {fileID: 7481002273549842279}
   - component: {fileID: 7481002273549842276}
+  - component: {fileID: 2524857591425268213}
   m_Layer: 5
   m_Name: frame
   m_TagString: Untagged
@@ -2182,6 +2183,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &2524857591425268213
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481002273549842202}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7481002273628322112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,8 +2436,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7481002275370968660}
   - component: {fileID: 5100359021595761819}
+  - component: {fileID: 4155112042307896422}
+  - component: {fileID: 7022232019952167608}
   m_Layer: 5
-  m_Name: popup_products
+  m_Name: PopupListProducts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2476,7 +2491,7 @@ MonoBehaviour:
     DisableGraphicRaycaster: 1
     Enabled: 1
     GraphicRaycaster: {fileID: 0}
-    RectTransform: {fileID: 0}
+    RectTransform: {fileID: 7481002273549842277}
     StartAlpha: 1
     StartPosition: {x: 0, y: 0, z: 0}
     StartRotation: {x: 0, y: 0, z: 0}
@@ -2489,11 +2504,50 @@ MonoBehaviour:
     DisableGraphicRaycaster: 1
     Enabled: 1
     GraphicRaycaster: {fileID: 0}
-    RectTransform: {fileID: 0}
+    RectTransform: {fileID: 7481002275495232444}
     StartAlpha: 1
     StartPosition: {x: 0, y: 0, z: 0}
     StartRotation: {x: 0, y: 0, z: 0}
     StartScale: {x: 1, y: 1, z: 1}
+--- !u!223 &4155112042307896422
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481002275370968661}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &7022232019952167608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481002275370968661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &7481002275495232445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2741,9 +2795,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 2537708595115931436}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135

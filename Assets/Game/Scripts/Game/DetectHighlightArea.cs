@@ -1,10 +1,11 @@
 using _GAME.Scripts.Controllers;
+using System;
 using UnityEngine;
 
 public class DetectHighlightArea : MonoBehaviour
 {
     [SerializeField] private ParticleSystem[] particleSystems;
-    private Stall _stall = null;
+    private Action<bool> OnShow = null;
 
     private void Start()
     {
@@ -14,23 +15,20 @@ public class DetectHighlightArea : MonoBehaviour
         }
     }
 
-    public void Set(Stall stall)
+    public void Set(Action<bool> OnShow)
     {
-        this._stall = stall;
+        this.OnShow = OnShow;
     }    
 
     private void OnTriggerEnter(Collider other)
     {
         if (other)
         {
-            if (_stall != null)
+            string layername = LayerMask.LayerToName(other.gameObject.layer);
+            Debug.Log($"Trigger enter layername {layername}");
+            if (layername == "Player")
             {
-                string layername = LayerMask.LayerToName(other.gameObject.layer);
-                Debug.Log($"Trigger enter layername {layername}");
-                if (layername == "Player")
-                {
-                    GameController.Instance.GameHud.ShowBuyItem(this._stall);
-                }
+                this.OnShow?.Invoke(true);
             }
         }
     }
@@ -43,7 +41,7 @@ public class DetectHighlightArea : MonoBehaviour
             Debug.Log($"Trigger exit layername {layername}");
             if (layername == "Player")
             {
-                GameController.Instance.GameHud.ShowBuyItem();
+                this.OnShow?.Invoke(false);
             }
         }
     }

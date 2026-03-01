@@ -13,6 +13,7 @@ namespace GreiB.UIManager.Scripts.UIPopup
 	public class UIPopupManager : MonoBehaviour
 	{
      
+        //#region Constants
         #region Constants
         public const string POPUP_PREFAB_LOCATION = "Prefabs/Popups/";
         #endregion

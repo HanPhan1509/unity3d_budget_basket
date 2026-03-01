@@ -18,23 +18,23 @@ public class BuyItem : MonoBehaviour
 
     public void Set(Stall stall, Action<Stall> OnClicked)
     {
-        this.stall = null;
+        this.stall = stall;
         this.OnClicked = OnClicked;
         RefreshView();
     }
 
     private void RefreshView()
     {
-        if(stall != null)
+        if (stall != null)
         {
-            this.nameItem.text = name;
+            this.nameItem.text = stall.StallID.ToString();
         } else
         {
             this.nameItem.text = "N/A";
         }
     }
 
-    private void OnBuyItem()
+    public void OnBuyItem()
     {
         if (stall == null) return;
         OnClicked?.Invoke(stall);

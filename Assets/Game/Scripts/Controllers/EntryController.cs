@@ -25,7 +25,8 @@ namespace _GAME.Scripts.Controllers
                 .SetEase(Ease.OutCubic)
                 .OnComplete(() =>
                 {
-                    SceneManager.LoadScene(GameConstants.SceneMain);
+                    //SceneManager.LoadScene(GameConstants.SceneMain);
+                    SceneManager.LoadScene(GameConstants.SceneGame);
                 });
         }
     }
