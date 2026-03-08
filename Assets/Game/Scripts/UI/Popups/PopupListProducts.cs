@@ -30,7 +30,6 @@ public class PopupListProducts : UIPopup
                 var productItem = go.GetComponent<ProductItem>();
                 if (productItem != null)
                 {
-                    Debug.Log($"Set {pro?.Name} - {pro?.Price}");
                     productItem.Set(pro, Get, Return);
                 }
             }
@@ -48,13 +47,13 @@ public class PopupListProducts : UIPopup
 
     private void Get(ProductItem productItem)
     {
-        if (GameController.Instance.AddProductInCart(productItem.Product))
-            productItem.UpdateView();
+        //if (GameController.Instance.AddProductInCart(productItem.Product))
+        //    productItem.UpdateView();
     }
 
     private void Return(ProductItem productItem)
     {
-        if (GameController.Instance.RemoveProductInCart(productItem.Product.id))
-            productItem.UpdateView();
+        //if (GameController.Instance.RemoveProductInCart(productItem.Product.Id))
+        //    productItem.UpdateView();
     }
 }

@@ -15,5 +15,6 @@
         TutorialPopup = 9,
 
         PopupListProducts = 10,
+        PopupCaculateBill = 11,
     }
 }

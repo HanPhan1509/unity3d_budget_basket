@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Camera m_Camera;
     [SerializeField] private Animator animator;
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform model;
@@ -23,7 +24,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        if(animator)
+        this.m_Camera.SetActive(true);
+        if (animator)
         {
             animator = GetComponent<Animator>();
         }
@@ -43,6 +45,9 @@ public class PlayerController : MonoBehaviour
             //{
             //    SetAnimation("move");
             //}
+        } else
+        {
+            controller.Move(Vector3.zero);
         }
     }
 
@@ -88,5 +93,11 @@ public class PlayerController : MonoBehaviour
         animator.ResetTrigger(_currentAnim);
         _currentAnim = name;
         animator.SetTrigger(_currentAnim);
+    }
+
+    public void StopMove()
+    {
+        this.m_Camera.SetActive(false);
+        this._allowMove = false;
     }
 }

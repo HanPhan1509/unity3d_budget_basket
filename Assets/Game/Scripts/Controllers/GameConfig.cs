@@ -5,20 +5,38 @@ using UnityEngine;
 
 public enum StallID
 {
+    CashRegister,
+
    Fruits,
    FastFood,
    Dinks,
    Cakes,
 }
 
+public enum ProductID
+{
+    //Fruits
+    Apple,
+    Strawberry,
+    Orange,
+    Banana,
+    Kiwi_Slice,
+    Grapes,
+    Watermelon_Slice,
+    Blue_Berry,
+    Cherry,
+    Pear,
+    Lemon
+}
+
 [Serializable]
 public class Product
 {
-    public string id;
-    public string Name;
-    //public string Description;
+    public ProductID Id;
     public int Price;
-    public Sprite Preview;
+    //public Sprite Preview;
+    public int Quantity;
+    public int MaxQuantity = 5;
 }
 
 [Serializable]
