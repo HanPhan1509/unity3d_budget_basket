@@ -22,6 +22,7 @@ public class PopupListProducts : UIPopup
         var param = (PopupListProductsParam)Parameter;
         if (param != null)
         {
+            txtNameStall.text = param.stall.StallID.ToString().Replace("_", " ");
             foreach (var pro in param.stall.Products)
             {
                 var go = SimplePool.Spawn(prefab, Vector3.zero, Quaternion.identity);

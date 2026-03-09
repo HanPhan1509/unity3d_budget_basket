@@ -40,7 +40,7 @@ public class ProductItem : MonoBehaviour
             //_btnGet.SetActive(!isInShoppingCart);
             //_btnReturn.SetActive(isInShoppingCart);
 
-            imgPreview.sprite = Resources.Load<Sprite>($"stalls/{product.Id.ToString()}");
+            imgPreview.sprite = Resources.Load<Sprite>($"products/{product.Id.ToString()}");
         }
     }
 

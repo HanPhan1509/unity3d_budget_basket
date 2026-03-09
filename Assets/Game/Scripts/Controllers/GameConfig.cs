@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum StallID
 {
-    CashRegister,
+   CashRegister,
 
    Fruits,
    FastFood,
