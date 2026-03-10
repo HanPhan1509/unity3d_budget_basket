@@ -68,14 +68,14 @@ namespace _GAME.Scripts.Controllers
             EndGamePopupParam param = new EndGamePopupParam
             {
                 score = _userScore,
-                isNewHighScore = _userScore > SaveDataHandler.Instance.UserHighScore
+                isNewHighScore = _userScore > SaveDataHandler.Instance.saveData.voucherAmount
             };
 
-            if (_userScore > SaveDataHandler.Instance.UserHighScore)
-            {
-                SaveDataHandler.Instance.UserHighScore = _userScore;
-                SaveDataHandler.Instance.RequestSave();
-            }
+            //if (_userScore > SaveDataHandler.Instance.VoucherAmount)
+            //{
+            //    SaveDataHandler.Instance.VoucherAmount = _userScore;
+            //    SaveDataHandler.Instance.RequestSave();
+            //}
 
             UIManager.Instance.PopupManager.ShowPopup(UIPopupName.EndGamePopup, param);
         }

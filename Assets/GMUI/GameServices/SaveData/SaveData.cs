@@ -17,16 +17,15 @@ namespace GreiB.GameServices.SaveData
 
         public int level = 1;
         public int currentLevelIndex = 1;
-        public int moneyAmount;
         public int currentDayDailyReward = 1;
-        public int userHighScore = 0;
+        public int point = 0;
+        public int voucherAmount = 0;
         public int gameModeChoose = 0;
-        
-        public int userHighScoreTime = -1;
 
         public bool isShowRateUs;
 
         public List<int> dailyRewardClaimedList = new();
+        public List<int> stars = new();
         
     }
 }

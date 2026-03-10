@@ -16,16 +16,6 @@ namespace GreiB.GameServices.SaveData
 
         #endregion
 
-        public int UserHighScore
-        {
-            get => saveData.userHighScore;
-            set => saveData.userHighScore = value;
-        }
-        public int UserHighScoreTime
-        {
-            get => saveData.userHighScoreTime;
-            set => saveData.userHighScoreTime = value;
-        }
         #region DAILY REWARD
 
         public void ResetLastTimeEarnedDailyReward()
@@ -156,6 +146,25 @@ namespace GreiB.GameServices.SaveData
             Debug.Log("Requesting save data");
         }
 
+        #endregion
+
+        #region STAR
+        public void UpdateStar(int index, int starCount)
+        {
+            if(this.saveData.stars.Count - 1 > index)
+            {
+                this.saveData.stars.Add(starCount);
+            } else
+            {
+                this.saveData.stars[index] = starCount;
+            }
+        }
+
+        public int GetLevelSelect(int level)
+        {
+            if (level > this.saveData.stars.Count - 1) return 0;
+            return this.saveData.stars[level];
+        }
         #endregion
     }
 }

@@ -6,27 +6,20 @@ using GreiB.UIManager.Scripts.UIPopup;
 using GreiB.UIManager.Scripts.UIView;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace _GAME.Scripts.Views
 {
     public class MainView : UIView
     {
-        [SerializeField] private TextMeshProUGUI highScoreText;
-        [SerializeField] private TextMeshProUGUI timeHighScore;
+        [SerializeField] private Text txtVoucher;
+        [SerializeField] private Text txtPoint;
 
         protected override void OnShowing()
         {
             base.OnShowing();
-            highScoreText.text = SaveDataHandler.Instance.UserHighScore.ToString();
-            if (SaveDataHandler.Instance.UserHighScoreTime == -1)
-            {
-                timeHighScore.text = "N/A";
-            }
-            else
-            {
-                timeHighScore.text = SaveDataHandler.Instance.UserHighScoreTime.ToString();
-            }
+            txtVoucher.text = SaveDataHandler.Instance.saveData.voucherAmount.ToString();
+            txtPoint.text = SaveDataHandler.Instance.saveData.point.ToString();
         }
 
 
@@ -34,9 +27,7 @@ namespace _GAME.Scripts.Views
 
         public void OnClickPlayGame()
         {
-            // Hide();
-            AudioManager.Instance.PlaySfx(AudioName.UI_Click);
-            UIManager.Instance.PopupManager.ShowPopup(UIPopupName.GameModePopup);
+            UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupLevelSelect);
         }
 
         public void OnClickOpenSetting()

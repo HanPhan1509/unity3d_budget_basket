@@ -11,10 +11,10 @@
         ShopPopup = 5,
         TaskPopup = 6,
         LeaderBoardPopup = 7,
-        GameModePopup = 8,
         TutorialPopup = 9,
 
         PopupListProducts = 10,
         PopupCaculateBill = 11,
+        PopupLevelSelect = 12,
     }
 }
