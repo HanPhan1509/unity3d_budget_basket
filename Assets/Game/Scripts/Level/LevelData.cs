@@ -8,7 +8,7 @@ public class LevelData : ScriptableObject
     public int Level;
     public int BudgetMoney;
     public int vat;
-    public List<Product> TargetProducts = new List<Product>();
+    public List<ProductID> TargetProducts = new List<ProductID>();
     public float timer;
     public int sale;
     public List<StallID> StallIDs = new(); //Luu nhung id prefab se create trong level do

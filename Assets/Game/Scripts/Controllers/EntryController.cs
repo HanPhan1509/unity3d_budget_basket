@@ -26,7 +26,6 @@ namespace _GAME.Scripts.Controllers
                 .OnComplete(() =>
                 {
                     SceneManager.LoadScene(GameConstants.SceneMain);
-                    //SceneManager.LoadScene(GameConstants.SceneGame);
                 });
         }
     }

@@ -1,7 +1,11 @@
+using _GAME.Scripts;
+using _GAME.Scripts.Views;
 using GreiB.GameServices.SaveData;
+using GreiB.UIManager.Scripts.Base;
 using GreiB.UIManager.Scripts.UIPopup;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PopupLevelSelect : UIPopup
@@ -29,5 +33,9 @@ public class PopupLevelSelect : UIPopup
     private void OnClickedLevel(int level)
     {
         GameManager.Instance.SetCurrentLevelData(level);
+        this.Hide();
+        UIManager.Instance.ViewManager.GetViewByName<MainView>(GreiB.UIManager.Scripts.UIView.UIViewName.MainView).Hide();
+        SceneManager.LoadScene(GameConstants.SceneGame);
+        UIManager.Instance.ShowLoading(3f);
     }
 }
