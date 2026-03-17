@@ -16,5 +16,6 @@
         PopupListProducts = 10,
         PopupCaculateBill = 11,
         PopupLevelSelect = 12,
+        PopupLevelTarget = 13
     }
 }

@@ -15,8 +15,10 @@ MonoBehaviour:
   Name: Level 1
   Level: 0
   BudgetMoney: 200
-  vat: 0
-  TargetProducts: 00000000
-  timer: 0
-  sale: 0
+  Vat: 0
+  TargetLevel:
+  - stallID: 1
+    amount: 2
+  Timer: 200
+  Sale: 0
   StallIDs: 0000000001000000

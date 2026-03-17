@@ -879,14 +879,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4301781244458930716, guid: 6d170b3888e017b49ab30b251e745542, type: 3}
-      propertyPath: levelDatas.Array.size
-      value: 1
+    - target: {fileID: 1823653144747032686, guid: 6d170b3888e017b49ab30b251e745542, type: 3}
+      propertyPath: StartPosition.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4301781244458930716, guid: 6d170b3888e017b49ab30b251e745542, type: 3}
-      propertyPath: levelDatas.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: f5bc8efcef3a4bb449d1852907fd6775, type: 2}
+    - target: {fileID: 1823653144747032686, guid: 6d170b3888e017b49ab30b251e745542, type: 3}
+      propertyPath: StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6987482905859888714, guid: 6d170b3888e017b49ab30b251e745542, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -934,6 +934,14 @@ PrefabInstance:
     - target: {fileID: 7903073084690039665, guid: 6d170b3888e017b49ab30b251e745542, type: 3}
       propertyPath: m_Name
       value: '@GameManager'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747820454906701170, guid: 6d170b3888e017b49ab30b251e745542, type: 3}
+      propertyPath: StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747820454906701170, guid: 6d170b3888e017b49ab30b251e745542, type: 3}
+      propertyPath: StartPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d170b3888e017b49ab30b251e745542, type: 3}

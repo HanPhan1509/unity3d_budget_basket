@@ -7,6 +7,8 @@ using Imba.Utils;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static PopupLevelTarget;
+using static PopupListProducts;
 
 namespace _GAME.Scripts.Controllers
 {
@@ -22,6 +24,8 @@ namespace _GAME.Scripts.Controllers
 
         public GameHud GameHud => gameHud;
 
+        public List<Product> LstProdutsInCart { get => _lstProdutsInCart; set => _lstProdutsInCart = value; }
+
         public override void Awake()
         {
             base.Awake();
@@ -30,9 +34,21 @@ namespace _GAME.Scripts.Controllers
         void Start()
         {
             this._camera.SetActive(false);
+            gameHud.UpdateMoney(GameManager.Instance.GetCurrentLevelData().BudgetMoney);
+
+            UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupLevelTarget, new PopupLevelTargetParam
+            {
+                OnPlay = GameStart
+            });
+            //UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupListProducts, new PopupListProductsParam { stall = stall });
             //_gameView = UIManager.Instance.ViewManager.GetViewByName<GameView>(UIViewName.GameView);
             //UIManager.Instance.ViewManager.ShowView(UIViewName.GameView);
             //UIManager.Instance.HideTransition(() => { });
+        }
+
+        private void GameStart()
+        {
+
         }
 
         void Update()

@@ -33,7 +33,7 @@ public class GameHud : MonoBehaviour
     {
         var data = GameManager.Instance.GetCurrentLevelData();
         UpdateMoney(data.BudgetMoney);
-        UpdateTimer(data.timer);
+        UpdateTimer(data.Timer);
     }
 
     public void HideAll()
