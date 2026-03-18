@@ -50,4 +50,5 @@ public class Stall
 public class GameConfig : ManualSingletonMono<GameConfig>
 {
     public int MaxItemInShoppingCart = 3;
+    public List<StallProduct> ListStallInStore = new List<StallProduct>();
 }
