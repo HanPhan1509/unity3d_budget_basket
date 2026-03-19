@@ -5,12 +5,16 @@ using UnityEngine;
 
 public enum StallID
 {
-   CashRegister,
+    CashRegister,
+    Fruits,
 
-   Fruits,
-   FastFood,
-   Dinks,
-   Cakes,
+    Vegetable,
+    DrinkBoxes,
+    Dinks,
+    Freeze,
+
+    FastFood,
+    Cakes,
 }
 
 public enum ProductID
@@ -26,7 +30,19 @@ public enum ProductID
     Blue_Berry,
     Cherry,
     Pear,
-    Lemon
+    Lemon,
+
+    //Vegetable
+    Egg,
+    Tomatoes,
+    Mushroom,
+    Cucumber,
+    Bell_pepper,
+    Green_beans,
+    Lettuce,
+    Cabbage,
+    Green_spinach,
+    Carrot
 }
 
 [Serializable]
@@ -44,7 +60,6 @@ public class Stall
 {
     public StallID StallID;
     public List<Product> Products;
-    public Sprite Preview;
 }
 
 public class GameConfig : ManualSingletonMono<GameConfig>
