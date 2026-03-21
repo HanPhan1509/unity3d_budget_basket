@@ -48,7 +48,20 @@ public class PopupLevelTarget : UIPopup
             _sale.SetActive(LevelData.Sale > 0);
             _vat.SetActive(LevelData.Vat > 0);
 
-            foreach (var tg in LevelData.TargetLevel)
+            foreach (var tg in LevelData.TargetStalls)
+            {
+                var pref = SimplePool.Spawn(prefTarget, Vector3.zero, Quaternion.identity);
+                var item = pref.GetComponent<TargetItem>();
+                if (item != null)
+                {
+                    item.transform.SetParent(parent);
+                    item.gameObject.transform.localScale = Vector3.one;
+                    item.Set(tg);
+                    _items.Add(item);
+                }
+            }
+
+            foreach (var tg in LevelData.TargetProducts)
             {
                 var pref = SimplePool.Spawn(prefTarget, Vector3.zero, Quaternion.identity);
                 var item = pref.GetComponent<TargetItem>();

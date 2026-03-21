@@ -44,7 +44,8 @@ public class BillItem : MonoBehaviour
     private float GetDiscountPercent()
     {
         var data = GameManager.Instance.GetCurrentLevelData();
-        var pr = data.SaleProducts.Find(x => x.productID == this.product.Id);
+        //var pr = data.SaleProducts.Find(x => x.productID == this.product.Id); //TODO
+        SaleProduct pr = null;
         if (pr == null) return 0.0f;
         return pr.sale;
     }

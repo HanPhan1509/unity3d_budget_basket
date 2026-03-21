@@ -58,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9031181182240828666}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -177,7 +177,15 @@ MonoBehaviour:
     StallID: 2
     Products:
     - Id: 11
-      Price: 5200
+      Price: 3500
+      Quantity: 0
+      MaxQuantity: 10
+    - Id: 22
+      Price: 2000
+      Quantity: 0
+      MaxQuantity: 10
+    - Id: 23
+      Price: 5000
       Quantity: 0
       MaxQuantity: 10
     - Id: 12
@@ -197,15 +205,15 @@ MonoBehaviour:
       Quantity: 0
       MaxQuantity: 4
     - Id: 16
-      Price: 40000
+      Price: 32000
       Quantity: 0
       MaxQuantity: 1
     - Id: 17
-      Price: 60000
+      Price: 42500
       Quantity: 0
       MaxQuantity: 1
     - Id: 18
-      Price: 30000
+      Price: 12500
       Quantity: 0
       MaxQuantity: 1
     - Id: 19
@@ -216,7 +224,14 @@ MonoBehaviour:
       Price: 5000
       Quantity: 0
       MaxQuantity: 6
+    - Id: 21
+      Price: 10000
+      Quantity: 0
+      MaxQuantity: 10
   detectHighlightArea: {fileID: 9031181182240828664}
+  start: 0
+  end: 0
+  maxQuantity: 1
 --- !u!1001 &9031181181889160106
 PrefabInstance:
   m_ObjectHideFlags: 0

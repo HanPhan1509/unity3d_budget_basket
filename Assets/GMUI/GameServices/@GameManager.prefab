@@ -128,6 +128,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelDatas:
   - {fileID: 11400000, guid: f5bc8efcef3a4bb449d1852907fd6775, type: 2}
+  - {fileID: 11400000, guid: e06627c12afe8a5448d651ee78f8f40c, type: 2}
+  - {fileID: 11400000, guid: 72f45f91827e00241937eb2edf06963b, type: 2}
+  - {fileID: 11400000, guid: abda41a38c5587445b36487dbbe6d21e, type: 2}
+  - {fileID: 11400000, guid: c613e1954235c574d921603a88bbad89, type: 2}
 --- !u!1001 &2998655335922153369
 PrefabInstance:
   m_ObjectHideFlags: 0

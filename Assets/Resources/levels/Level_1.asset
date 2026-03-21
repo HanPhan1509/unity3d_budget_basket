@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ef7dbeed36efb41b92dc880bbec8e3, type: 3}
   m_Name: Level_1
   m_EditorClassIdentifier: 
-  Name: Level 1
   Level: 0
-  BudgetMoney: 200
+  BudgetMoney: 10000
   Vat: 0
-  TargetLevel:
-  - stallID: 1
+  TargetStalls: []
+  TargetProducts:
+  - productID: 3
     amount: 2
-  Timer: 200
+  - productID: 22
+    amount: 1
+  Timer: 300
   Sale: 0
   StallIDs: 0000000001000000
+  SaleProducts: []

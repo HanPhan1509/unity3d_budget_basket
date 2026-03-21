@@ -8,7 +8,7 @@ namespace _GAME.Scripts.Controllers
     public class EntryController : MonoBehaviour
     {
         [SerializeField] private GameObject manager;
-        [SerializeField] private Image Slider;
+        [SerializeField] private Slider Slider;
         [SerializeField] private float loadDuration = 2f;
 
         private void Awake()
@@ -19,9 +19,9 @@ namespace _GAME.Scripts.Controllers
 
         private void Start()
         {
-            Slider.fillAmount = 0f;
+            Slider.value = 0f;
 
-            Slider.DOFillAmount(1f, loadDuration)
+            Slider.DOValue(1f, loadDuration)
                 .SetEase(Ease.OutCubic)
                 .OnComplete(() =>
                 {

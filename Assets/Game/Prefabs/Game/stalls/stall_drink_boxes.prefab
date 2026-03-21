@@ -81,8 +81,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stall:
     StallID: 3
-    Products: []
+    Products:
+    - Id: 24
+      Price: 8000
+      Quantity: 0
+      MaxQuantity: 1
+    - Id: 25
+      Price: 30000
+      Quantity: 0
+      MaxQuantity: 1
+    - Id: 26
+      Price: 45000
+      Quantity: 0
+      MaxQuantity: 1
+    - Id: 27
+      Price: 50000
+      Quantity: 0
+      MaxQuantity: 1
+    - Id: 28
+      Price: 38000
+      Quantity: 0
+      MaxQuantity: 1
+    - Id: 29
+      Price: 25000
+      Quantity: 0
+      MaxQuantity: 1
+    - Id: 30
+      Price: 40000
+      Quantity: 0
+      MaxQuantity: 1
+    - Id: 31
+      Price: 40000
+      Quantity: 0
+      MaxQuantity: 1
+    - Id: 32
+      Price: 45000
+      Quantity: 0
+      MaxQuantity: 1
   detectHighlightArea: {fileID: 4112560461757902092}
+  start: 24
+  end: 30
+  maxQuantity: 1
 --- !u!1 &4112560461651490547
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4112560461757902094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

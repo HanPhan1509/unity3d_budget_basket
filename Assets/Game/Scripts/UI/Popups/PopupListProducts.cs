@@ -13,6 +13,8 @@ public class PopupListProducts : UIPopup
 
     [SerializeField] private Text txtNameStall;
     [SerializeField] private ScrollRect scrollView;
+    [SerializeField] private Text txtSale;
+    [SerializeField] private GameObject sale;
     [SerializeField] private GameObject prefab;
 
     protected override void OnShowing()
@@ -22,6 +24,14 @@ public class PopupListProducts : UIPopup
         var param = (PopupListProductsParam)Parameter;
         if (param != null)
         {
+            var data = GameManager.Instance.GetCurrentLevelData();
+            var saleProduct = data.IsSaleForStall(param.stall.StallID);
+            sale.SetActive(saleProduct != null);
+            if (saleProduct != null)
+            {
+                txtSale.text = $"{saleProduct.sale}%";
+            }
+
             txtNameStall.text = param.stall.StallID.ToString().Replace("_", " ");
             foreach (var pro in param.stall.Products)
             {
