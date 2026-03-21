@@ -10,7 +10,7 @@ public enum StallID
 
     Vegetable,
     DrinkBoxes,
-    Dinks,
+    Drinks,
     Freeze,
     Bread,
 

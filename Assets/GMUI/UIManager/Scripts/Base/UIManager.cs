@@ -30,6 +30,8 @@ namespace GreiB.UIManager.Scripts.Base
         public RectTransform transitionRect;
 
         public RectTransform transitionRender;
+        public RectTransform transitionRight;
+        public RectTransform transitionLeft;
 
         public bool IsShowingLoading
         {
@@ -102,18 +104,29 @@ namespace GreiB.UIManager.Scripts.Base
         public void ShowTransition(UnityAction onDone)
         {
             transitionRect.SetActive(true);
-            transitionRender.localScale = Vector3.zero;
-            transitionRender.DOScale(Vector3.one * 9, 0.5f).OnComplete(() => { onDone?.Invoke(); })
-                .SetEase(Ease.Linear);
+            transitionRight.localPosition = new Vector3 (-2000, 0, 0);
+            transitionLeft.localPosition = new Vector3 (2000, 0, 0);
+            DOTween.Sequence()
+                .Insert(0, transitionRight.DOLocalMoveX(0, 1f))
+                .Insert(0, transitionLeft.DOLocalMoveX(0, 1f))
+                .SetEase(Ease.Linear)
+                .AppendInterval(1f)
+                .Play().OnComplete(() => { onDone?.Invoke(); });
         }
 
         public void HideTransition(UnityAction onDone)
         {
-            transitionRender.DOScale(Vector3.zero, 0.5f).OnComplete(() =>
-            {
-                transitionRect.SetActive(false);
-                onDone?.Invoke();
-            }).SetEase(Ease.Linear);
+            transitionRight.localPosition = new Vector3(0, 0, 0);
+            transitionLeft.localPosition = new Vector3(0, 0, 0);
+            DOTween.Sequence()
+                .Insert(0, transitionRight.DOLocalMoveX(-2000, 1.3f))
+                .Insert(0, transitionLeft.DOLocalMoveX(2000, 1.3f))
+                .SetEase(Ease.Linear)
+                //.AppendInterval(3f)
+                .Play().OnComplete(() => {
+                    transitionRect.SetActive(false);
+                    onDone?.Invoke(); 
+                });
         }
 
         void HideLoadingCallback()

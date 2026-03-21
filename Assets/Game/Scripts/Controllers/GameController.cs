@@ -4,6 +4,8 @@ using GreiB.UIManager.Scripts.Base;
 using GreiB.UIManager.Scripts.UIPopup;
 using GreiB.UIManager.Scripts.UIView;
 using Imba.Utils;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -23,6 +25,7 @@ namespace _GAME.Scripts.Controllers
         private GameView _gameView;
 
         public GameHud GameHud => gameHud;
+        private LevelData _levelData;
 
         public List<Product> LstProdutsInCart { get => _lstProdutsInCart; set => _lstProdutsInCart = value; }
 
@@ -34,12 +37,21 @@ namespace _GAME.Scripts.Controllers
         void Start()
         {
             this._camera.SetActive(false);
-            gameHud.UpdateMoney(GameManager.Instance.GetCurrentLevelData().BudgetMoney);
+            _levelData = GameManager.Instance.GetCurrentLevelData();
+            gameHud.UpdateMoney(_levelData.BudgetMoney);
+            gameHud.UpdateTimer(_levelData.Timer);
 
             UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupLevelTarget, new PopupLevelTargetParam
             {
                 OnPlay = GameStart
             });
+
+            UIManager.Instance.HideTransition(() =>
+            {
+                
+            });
+
+
             //UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupListProducts, new PopupListProductsParam { stall = stall });
             //_gameView = UIManager.Instance.ViewManager.GetViewByName<GameView>(UIViewName.GameView);
             //UIManager.Instance.ViewManager.ShowView(UIViewName.GameView);
@@ -48,7 +60,18 @@ namespace _GAME.Scripts.Controllers
 
         private void GameStart()
         {
+            StartCoroutine(Countdown());
+        }
 
+        private IEnumerator Countdown()
+        {
+            float timeLeft = _levelData.Timer;
+            while (timeLeft > 0)
+            {
+                gameHud.UpdateTimer(timeLeft);
+                yield return new WaitForSeconds(1f);
+                timeLeft--;
+            }
         }
 
         void Update()
@@ -80,7 +103,7 @@ namespace _GAME.Scripts.Controllers
         public void ShowEndGame()
         {
             PauseGame();
-            
+
             EndGamePopupParam param = new EndGamePopupParam
             {
                 score = _userScore,
@@ -153,7 +176,7 @@ namespace _GAME.Scripts.Controllers
         public void UpdateShoppingCart(Product product)
         {
             Product pr = _lstProdutsInCart.Find(x => x.Id.ToString() == product.Id.ToString());
-            if(pr == null)
+            if (pr == null)
             {
                 _lstProdutsInCart.Add(product);
                 return;
@@ -168,7 +191,8 @@ namespace _GAME.Scripts.Controllers
             if (pr.Quantity > 0)
             {
                 pr.Quantity = product.Quantity;
-            } else
+            }
+            else
             {
                 _lstProdutsInCart.Remove(pr);
             }

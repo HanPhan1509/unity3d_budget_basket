@@ -1,4 +1,5 @@
 using DG.Tweening;
+using GreiB.UIManager.Scripts.Base;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -25,7 +26,10 @@ namespace _GAME.Scripts.Controllers
                 .SetEase(Ease.OutCubic)
                 .OnComplete(() =>
                 {
-                    SceneManager.LoadScene(GameConstants.SceneMain);
+                    UIManager.Instance.ShowTransition(() =>
+                    {
+                        SceneManager.LoadScene(GameConstants.SceneMain);
+                    });
                 });
         }
     }
