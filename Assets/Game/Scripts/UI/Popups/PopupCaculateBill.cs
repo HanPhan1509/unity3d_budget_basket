@@ -155,7 +155,7 @@ public class PopupCaculateBill : UIPopup
         bool isWin = !(refund < 0);
         btnNext.SetActive(isWin && !GameManager.Instance.IsLastLevel());
 
-        if (isWin)
+        if (isWin && !(LevelData.Level < SaveDataHandler.Instance.saveData.level))
         {
             SaveDataHandler.Instance.saveData.level += 1;
             slider.gameObject.SetActive(false);

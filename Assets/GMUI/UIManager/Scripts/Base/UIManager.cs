@@ -8,6 +8,7 @@ using Imba.Utils;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using GreiB.GameServices.Audio.Scripts;
 
 namespace GreiB.UIManager.Scripts.Base
 {
@@ -16,8 +17,8 @@ namespace GreiB.UIManager.Scripts.Base
     /// </summary>
     public class UIManager : ManualSingletonMono<UIManager>
     {
-        public Camera         UICamera;
-        public UIViewManager  ViewManager;
+        public Camera UICamera;
+        public UIViewManager ViewManager;
         public UIPopupManager PopupManager;
         public UIAlertManager AlertManager;
 
@@ -103,12 +104,17 @@ namespace GreiB.UIManager.Scripts.Base
 
         public void ShowTransition(UnityAction onDone)
         {
+            AudioManager.Instance.PlaySfx(AudioName.UI_Transition_Door_Sliding);
             transitionRect.SetActive(true);
-            transitionRight.localPosition = new Vector3 (-2000, 0, 0);
-            transitionLeft.localPosition = new Vector3 (2000, 0, 0);
+            transitionRight.localPosition = new Vector3(-2000, 0, 0);
+            transitionLeft.localPosition = new Vector3(2000, 0, 0);
             DOTween.Sequence()
                 .Insert(0, transitionRight.DOLocalMoveX(0, 0.5f))
                 .Insert(0, transitionLeft.DOLocalMoveX(0, 0.5f))
+                .AppendCallback(() =>
+                {
+                    AudioManager.Instance.PlaySfx(AudioName.UI_Transition_Door_Shut);
+                })
                 .SetEase(Ease.InQuad)
                 .AppendInterval(1f)
                 .Play().OnComplete(() => { onDone?.Invoke(); });
@@ -116,16 +122,18 @@ namespace GreiB.UIManager.Scripts.Base
 
         public void HideTransition(UnityAction onDone)
         {
+            AudioManager.Instance.PlaySfx(AudioName.UI_Transition_Door_Sliding);
             transitionRight.localPosition = new Vector3(0, 0, 0);
             transitionLeft.localPosition = new Vector3(0, 0, 0);
             DOTween.Sequence()
                 .Insert(0, transitionRight.DOLocalMoveX(-2000, 1f))
                 .Insert(0, transitionLeft.DOLocalMoveX(2000, 1f))
-                .SetEase(Ease.OutQuad)
+                .SetEase(Ease.InQuad)
                 //.AppendInterval(3f)
-                .Play().OnComplete(() => {
+                .Play().OnComplete(() =>
+                {
                     transitionRect.SetActive(false);
-                    onDone?.Invoke(); 
+                    onDone?.Invoke();
                 });
         }
 

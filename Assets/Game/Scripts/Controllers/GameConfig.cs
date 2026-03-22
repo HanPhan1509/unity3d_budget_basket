@@ -114,6 +114,12 @@ public class Stall
 {
     public StallID StallID;
     public List<Product> Products;
+
+    public bool IsInStall(ProductID id)
+    {
+        var item = Products.Find(x => x.Id == id);
+        return item != null;
+    }
 }
 
 public class GameConfig : ManualSingletonMono<GameConfig>

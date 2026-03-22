@@ -17,16 +17,10 @@ namespace GreiB.GameServices.Audio.Scripts
         #region UI SOUND 11 - 100
 
         UI_Click = 11,
-        UI_Hover = 12,
-        UI_Scroll = 13,
-        UI_Confirm = 14,
-        UI_Cancel = 15,
-        UI_Notification = 16,
-        UI_Alert = 17,
-        UI_AlertError = 18,
-        UI_AlertSuccess = 19,
-        UI_AlertWarning = 20,
-        UI_AlertInfo = 21,
+        UI_Transition_Door_Sliding = 12,
+        UI_Transition_Door_Close = 13,
+        UI_Transition_Door_Shut = 14,
+        UI_Transition_Door_Ting = 15,
 
         #endregion
 

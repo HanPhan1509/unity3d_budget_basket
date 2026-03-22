@@ -39,8 +39,7 @@ namespace _GAME.Scripts.Controllers
         {
             this._camera.SetActive(false);
             _levelData = GameManager.Instance.GetCurrentLevelData();
-            gameHud.UpdateMoney(_levelData.BudgetMoney);
-            gameHud.UpdateTimer(_levelData.Timer);
+            gameHud.Set();
 
             UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupLevelTarget, new PopupLevelTargetParam
             {
@@ -49,7 +48,7 @@ namespace _GAME.Scripts.Controllers
 
             UIManager.Instance.HideTransition(() =>
             {
-                
+
             });
 
 
@@ -122,57 +121,28 @@ namespace _GAME.Scripts.Controllers
 
         public void CalculateTheBill()
         {
-            UIManager.Instance.ShowTransition(() => {
+            UIManager.Instance.ShowTransition(() =>
+            {
                 this._camera.SetActive(true);
                 this.playerController.StopMove();
                 this.playerController.SetActive(false);
                 this.gameHud.HideAll();
                 UIManager.Instance.PopupManager.HidePopup(UIPopupName.SettingPopup); //if any
-                UIManager.Instance.HideTransition(() => {
+                UIManager.Instance.HideTransition(() =>
+                {
                     UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupCaculateBill);
                 });
             });
         }
 
-        private List<Product> _products = new List<Product>();
-        //public bool IsInShoppingCart(Fruit productId)
-        //{
-        //    return GetProductInCart(productId) != null;
-        //}
-
-        //public Product GetProductInCart(string productId) {
-        //    return _products.Find(x => x.Id == productId);
-        //}
-
-        //public bool AddProductInCart(Product product)
-        //{
-        //    if(product == null) 
-        //        return false;
-
-        //    //Full cart need upgrade
-        //    if(_products.Count >= GameConfig.Instance.MaxItemInShoppingCart)
-        //        return false;
-
-        //    if(IsInShoppingCart(product.Id))
-        //        return false;
-
-        //    _products.Add(product);
-        //    return true;
-        //}
-
-        //public bool RemoveProductInCart(string productId)
-        //{
-        //    if(string.IsNullOrEmpty(productId)) return false;
-        //    if (IsInShoppingCart(productId))
-        //    {
-        //        var item = GetProductInCart(productId);
-        //        _products.Remove(item);
-        //        return true;
-        //    }
-        //    return false;
-        //}
-
         private List<Product> _lstProdutsInCart = new List<Product>();
+        private Stall _currentStall = null;
+
+        public void SetCurrentStall(Stall stall)
+        {
+            _currentStall = stall;
+            this.gameHud.ShowBuyItem(stall);
+        }
 
         public int GetQuantityByProductId(string productId)
         {
@@ -188,6 +158,8 @@ namespace _GAME.Scripts.Controllers
                 return;
             }
             pr.Quantity = product.Quantity;
+            this.gameHud.UpdateTarget(product.Id, pr.Quantity);
+            UpdateTarget();
         }
 
         public void RemoveShoppingCart(Product product)
@@ -201,6 +173,21 @@ namespace _GAME.Scripts.Controllers
             else
             {
                 _lstProdutsInCart.Remove(pr);
+            }
+            this.gameHud.UpdateTarget(product.Id, pr.Quantity);
+            UpdateTarget();
+        }
+
+        private void UpdateTarget()
+        {
+            if (_currentStall != null)
+            {
+                int quantity = 0;
+                //lay san pham thuoc stall hien tai
+                var cartProductsInStall = _lstProdutsInCart.FindAll(x => _currentStall.IsInStall(x.Id));
+                cartProductsInStall.ForEach(x => quantity += x.Quantity);
+
+                this.gameHud.UpdateTarget(_currentStall.StallID, quantity);
             }
         }
     }

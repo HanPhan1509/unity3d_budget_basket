@@ -4,12 +4,17 @@ using GreiB.GameServices.Audio.Scripts;
 using GreiB.UIManager.Scripts.Base;
 using GreiB.UIManager.Scripts.UIPopup;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static PopupListProducts;
+using static UnityEditor.Progress;
 
 public class GameHud : MonoBehaviour
 {
+    [SerializeField] private GameObject prefTarget;
+    [SerializeField] private Transform parenttarget;
+
     [SerializeField] private BuyItem buyItem;
     [SerializeField] private GameObject joystick;
 
@@ -21,6 +26,8 @@ public class GameHud : MonoBehaviour
     [Header("Money")]
     [SerializeField] private Text txtMoney;
 
+    private LevelData levelData;
+
     //[SerializeField] private Joystick joystickMove;
     //[SerializeField] private Joystick joystickLook;
 
@@ -29,11 +36,22 @@ public class GameHud : MonoBehaviour
         this.buyItem.gameObject.SetActive(false);
     }
 
-    private void Set()
+    private void OnDestroy()
     {
-        var data = GameManager.Instance.GetCurrentLevelData();
-        UpdateMoney(data.BudgetMoney);
-        UpdateTimer(data.Timer);
+        foreach (var item in _itemsTarget)
+        {
+            item.transform.SetParent(null);
+            SimplePool.Despawn(item.gameObject);
+        }
+        _itemsTarget.Clear();
+    }
+
+    public void Set()
+    {
+        levelData = GameManager.Instance.GetCurrentLevelData();
+        UpdateMoney(levelData.BudgetMoney);
+        UpdateTimer(levelData.Timer);
+        UpdateTarget();
     }
 
     public void HideAll()
@@ -91,6 +109,56 @@ public class GameHud : MonoBehaviour
         TimeSpan ts = TimeSpan.FromSeconds(timer);
         string formatted = string.Format("{0:D2}:{1:D2}", ts.Minutes, ts.Seconds);
         this.txtTimer.text = $"{formatted}";
+    }
+    #endregion
+
+    #region TARGET
+    private List<TargetItemInGame> _itemsTarget = new List<TargetItemInGame>();
+    private void UpdateTarget()
+    {
+        foreach (var tg in levelData.TargetStalls)
+        {
+            var pref = SimplePool.Spawn(prefTarget, Vector3.zero, Quaternion.identity);
+            var item = pref.GetComponent<TargetItemInGame>();
+            if (item != null)
+            {
+                item.transform.SetParent(parenttarget);
+                item.gameObject.transform.localScale = Vector3.one;
+                item.Set(tg);
+                _itemsTarget.Add(item);
+            }
+        }
+
+        foreach (var tg in levelData.TargetProducts)
+        {
+            var pref = SimplePool.Spawn(prefTarget, Vector3.zero, Quaternion.identity);
+            var item = pref.GetComponent<TargetItemInGame>();
+            if (item != null)
+            {
+                item.transform.SetParent(parenttarget);
+                item.gameObject.transform.localScale = Vector3.one;
+                item.Set(tg);
+                _itemsTarget.Add(item);
+            }
+        }
+    }
+
+    public void UpdateTarget(ProductID productID, int quantity)
+    {
+        var item = _itemsTarget.Find(x => x.TargetProduct?.productID == productID);
+        if (item != null)
+        {
+            item.UpdateQuantityTarget(quantity);
+        }
+    }
+
+    public void UpdateTarget(StallID stallID, int quantity)
+    {
+        var item = _itemsTarget.Find(x => x.TargetStall?.stallID == stallID);
+        if (item != null)
+        {
+            item.UpdateQuantityTarget(quantity);
+        }
     }
     #endregion
 }

@@ -33,46 +33,46 @@ MonoBehaviour:
     playOnAwake: 0
   - audioName: 11
     type: 0
-    audioClip: {fileID: 8300000, guid: d57d8516c269dcb4da9f48437e5c361b, type: 3}
+    audioClip: {fileID: 8300000, guid: d757af41afbaf8b469befcc875de92c6, type: 3}
     volume: 1
     priority: 170
     spatialBlend: 0
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
-  - audioName: 102
+  - audioName: 12
     type: 0
-    audioClip: {fileID: 8300000, guid: 600671f2a9012e64dbe1d7ccb2efadf2, type: 3}
+    audioClip: {fileID: 8300000, guid: bfdb87965d20373418a3fd402922acad, type: 3}
     volume: 1
     priority: 170
-    spatialBlend: 0.37
+    spatialBlend: 0
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
-  - audioName: 103
+  - audioName: 13
     type: 0
-    audioClip: {fileID: 8300000, guid: dfcc6ab807021644bb027304b8427b94, type: 3}
+    audioClip: {fileID: 8300000, guid: c768268612f350340acdada42fe18385, type: 3}
     volume: 1
     priority: 170
-    spatialBlend: 0.37
+    spatialBlend: 0
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
-  - audioName: 104
+  - audioName: 14
     type: 0
-    audioClip: {fileID: 8300000, guid: 6ddf31d8175c1594db8e9e103ffbb878, type: 3}
+    audioClip: {fileID: 8300000, guid: fc1d2450f5aa7804aa3f37cb3dc81b9e, type: 3}
     volume: 1
     priority: 170
-    spatialBlend: 0.37
+    spatialBlend: 0
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
-  - audioName: 105
+  - audioName: 15
     type: 0
-    audioClip: {fileID: 8300000, guid: 97a63fef53d4f394bbe56291fe1d8db8, type: 3}
+    audioClip: {fileID: 8300000, guid: 61f6f5cf9b67d684790c0b6d8326f532, type: 3}
     volume: 1
     priority: 170
-    spatialBlend: 0.37
+    spatialBlend: 0
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0

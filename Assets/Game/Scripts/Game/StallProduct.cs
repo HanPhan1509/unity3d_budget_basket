@@ -14,7 +14,7 @@ public class StallProduct : MonoBehaviour
 
     private void ShowList(bool isShow)
     {
-        GameController.Instance.GameHud.ShowBuyItem(isShow ? this.stall : null);
+        GameController.Instance.SetCurrentStall(isShow ? this.stall : null);
     }
 
     [Header("DATA")]
