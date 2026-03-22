@@ -152,13 +152,16 @@ namespace _GAME.Scripts.Controllers
         public void UpdateShoppingCart(Product product)
         {
             Product pr = _lstProdutsInCart.Find(x => x.Id.ToString() == product.Id.ToString());
+            
             if (pr == null)
             {
                 _lstProdutsInCart.Add(product);
+                this.gameHud.UpdateTarget(product.Id, product.Quantity);
+                UpdateTarget();
                 return;
             }
             pr.Quantity = product.Quantity;
-            this.gameHud.UpdateTarget(product.Id, pr.Quantity);
+            this.gameHud.UpdateTarget(pr.Id, pr.Quantity);
             UpdateTarget();
         }
 

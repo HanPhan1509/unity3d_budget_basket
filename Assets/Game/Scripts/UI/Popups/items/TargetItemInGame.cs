@@ -14,9 +14,10 @@ public class TargetItemInGame : MonoBehaviour
 
     public void Set(TargetStall target)
     {
+        this.targetProduct = null;
+        this.targetStall = target;
         if (image != null)
         {
-
             string path = $"stalls/{target.stallID}";
             var sprite = Resources.Load<Sprite>(path);
             image.sprite = sprite;
@@ -27,6 +28,8 @@ public class TargetItemInGame : MonoBehaviour
 
     public void Set(TargetProduct target)
     {
+        this.targetProduct = target;
+        this.targetStall = null;
         if (image != null)
         {
             string path = $"products/{target.productID}";

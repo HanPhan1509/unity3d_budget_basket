@@ -148,6 +148,7 @@ public class GameHud : MonoBehaviour
         var item = _itemsTarget.Find(x => x.TargetProduct?.productID == productID);
         if (item != null)
         {
+            Debug.Log($"Update product: {quantity}/{item.TargetProduct.amount}");
             item.UpdateQuantityTarget(quantity);
         }
     }
@@ -157,6 +158,7 @@ public class GameHud : MonoBehaviour
         var item = _itemsTarget.Find(x => x.TargetStall?.stallID == stallID);
         if (item != null)
         {
+            Debug.Log($"Update stall: {quantity}/{item.TargetStall.amount}");
             item.UpdateQuantityTarget(quantity);
         }
     }
