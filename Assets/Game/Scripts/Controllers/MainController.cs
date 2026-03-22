@@ -8,6 +8,7 @@ namespace _GAME.Scripts.Controllers
     {
         private void Awake()
         {
+            GameManager.Instance.IsPlaying = false;
             UIManager.Instance.ViewManager.ShowView(UIViewName.MainView);
             UIManager.Instance.HideTransition(() => {  });
         }

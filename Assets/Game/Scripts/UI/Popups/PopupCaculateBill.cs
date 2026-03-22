@@ -113,12 +113,14 @@ public class PopupCaculateBill : UIPopup
 
     public void Summary()
     {
+        _tabCart.SetActive(false);
+        _tabCal.SetActive(true);
         ShowCaculatorTheBill();
     }
 
     private void ShowCaculatorTheBill()
     {
-        _txtPrice.text = "CALCULATE THE BILL";
+        _txtPrice.text = "CALCULATE THE BILL...";
 
         _txtPrice.gameObject.SetActive(false);
         scrollRect.gameObject.SetActive(false);
@@ -157,9 +159,14 @@ public class PopupCaculateBill : UIPopup
 
         if (isWin && !(LevelData.Level < SaveDataHandler.Instance.saveData.level))
         {
+            _txtPrice.text = "VICTORY";
             SaveDataHandler.Instance.saveData.level += 1;
             slider.gameObject.SetActive(false);
             SetSlider(refund);
+        }
+        else
+        {
+            _txtPrice.text = "FAILED";
         }
     }
 

@@ -1,4 +1,5 @@
 using System;
+using _GAME.Scripts.Controllers;
 using GreiB.GameServices.Audio.Scripts;
 using GreiB.UIManager.Scripts.Base;
 using GreiB.UIManager.Scripts.UIPopup;
@@ -51,12 +52,21 @@ namespace _GAME.Scripts.Popup
             {
                 groupBtn.SetActive(param.showGroupBtn);
             }
+
+            if(GameManager.Instance.IsPlaying)
+            {
+                GameController.Instance.PauseGame();
+            }
         }
 
         protected override void OnHiding()
         {
             base.OnHiding();
             AudioManager.Instance.SaveAudioSetting();
+            if (GameManager.Instance.IsPlaying)
+            {
+                GameController.Instance.ResumeGame();
+            }
         }
 
         public void OnChangeMusic(float value)

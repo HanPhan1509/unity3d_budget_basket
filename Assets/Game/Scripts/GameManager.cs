@@ -8,6 +8,8 @@ public class GameManager : ManualSingletonMono<GameManager>
     public List<LevelData> levelDatas = new();
     private LevelData _currentLevelData;
 
+    public bool IsPlaying = false;
+
     public void SetCurrentLevelData(int index)
     {
         int level = Mathf.Clamp(index, 0, levelDatas.Count - 1);

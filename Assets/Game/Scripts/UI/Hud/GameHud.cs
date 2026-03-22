@@ -17,6 +17,7 @@ public class GameHud : MonoBehaviour
 
     [SerializeField] private BuyItem buyItem;
     [SerializeField] private GameObject joystick;
+    [SerializeField] private GameObject buttonSettings;
 
     [Space(2.0f)]
     [Header("TIME")]
@@ -58,6 +59,7 @@ public class GameHud : MonoBehaviour
     {
         joystick.SetActive(false);
         buyItem.SetActive(false);
+        buttonSettings.SetActive(false);
     }
 
     public void ButtonSettings()

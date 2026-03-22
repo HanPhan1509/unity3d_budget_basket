@@ -22,7 +22,7 @@ namespace _GAME.Scripts.Controllers
         [SerializeField] private PlayerController playerController;
 
         private bool _isGamePaused = false;
-        private int _userScore = 0;
+        private bool _isGameEnded = false;
         private GameView _gameView;
 
         public GameHud GameHud => gameHud;
@@ -60,16 +60,27 @@ namespace _GAME.Scripts.Controllers
 
         private void GameStart()
         {
+            GameManager.Instance.IsPlaying = true;
             StartCoroutine(Countdown());
         }
 
         private IEnumerator Countdown()
         {
             float timeLeft = _levelData.Timer;
-            while (timeLeft > 0)
+            while (timeLeft >= 0)
             {
                 gameHud.UpdateTimer(timeLeft);
+                if (timeLeft <= 0)
+                {
+                    ShowEndGame();
+                    yield break;
+                }
+                if(_isGameEnded)
+                {
+                    break;
+                }
                 yield return new WaitForSeconds(1f);
+                if (_isGamePaused) continue;
                 timeLeft--;
             }
         }
@@ -83,7 +94,12 @@ namespace _GAME.Scripts.Controllers
 
             if (Input.GetKeyDown(KeyCode.L))
             {
-                ShowEndGame();
+                CalculateTheBill();
+            }
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                gameHud.ButtonSettings();
             }
         }
 
@@ -102,25 +118,24 @@ namespace _GAME.Scripts.Controllers
         /// </summary>
         public void ShowEndGame()
         {
-            PauseGame();
-
-            EndGamePopupParam param = new EndGamePopupParam
-            {
-                score = _userScore,
-                isNewHighScore = _userScore > SaveDataHandler.Instance.saveData.voucherAmount
-            };
-
-            //if (_userScore > SaveDataHandler.Instance.VoucherAmount)
-            //{
-            //    SaveDataHandler.Instance.VoucherAmount = _userScore;
-            //    SaveDataHandler.Instance.RequestSave();
-            //}
-
-            UIManager.Instance.PopupManager.ShowPopup(UIPopupName.EndGamePopup, param);
+            _isGameEnded = true;
+            UIManager.Instance.ShowTransition(() => {
+                this._camera.SetActive(true);
+                this.playerController.StopMove();
+                this.playerController.SetActive(false);
+                this.gameHud.HideAll();
+                UIManager.Instance.PopupManager.HidePopup(UIPopupName.SettingPopup); //if any
+                UIManager.Instance.PopupManager.HidePopup(UIPopupName.PopupListProducts); //if any
+                UIManager.Instance.HideTransition(() =>
+                {
+                    UIManager.Instance.PopupManager.ShowPopup(UIPopupName.EndGamePopup);
+                });
+            });
         }
 
         public void CalculateTheBill()
         {
+            _isGameEnded = true;
             UIManager.Instance.ShowTransition(() =>
             {
                 this._camera.SetActive(true);
@@ -128,6 +143,7 @@ namespace _GAME.Scripts.Controllers
                 this.playerController.SetActive(false);
                 this.gameHud.HideAll();
                 UIManager.Instance.PopupManager.HidePopup(UIPopupName.SettingPopup); //if any
+                UIManager.Instance.PopupManager.HidePopup(UIPopupName.PopupListProducts); //if any
                 UIManager.Instance.HideTransition(() =>
                 {
                     UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupCaculateBill);
