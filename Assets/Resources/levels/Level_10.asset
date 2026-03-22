@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61ef7dbeed36efb41b92dc880bbec8e3, type: 3}
-  m_Name: Level_4
+  m_Name: Level_10
   m_EditorClassIdentifier: 
-  Level: 3
-  BudgetMoney: 30000
+  Level: 4
+  BudgetMoney: 50000
   Vat: 0
   TargetStalls: []
   TargetProducts: []
-  Timer: 80
+  Timer: 100
   Sale: 0
   StallIDs: 0000000001000000
   SaleProducts: []

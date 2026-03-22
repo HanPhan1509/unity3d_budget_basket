@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        _allowMove = true;
         this.m_Camera.SetActive(true);
         if (animator)
         {

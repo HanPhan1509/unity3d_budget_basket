@@ -62,6 +62,8 @@ namespace _GAME.Scripts.Controllers
         private void GameStart()
         {
             GameManager.Instance.IsPlaying = true;
+            _isGameEnded = false;
+            _isGamePaused = false;
             StartCoroutine(Countdown());
         }
 

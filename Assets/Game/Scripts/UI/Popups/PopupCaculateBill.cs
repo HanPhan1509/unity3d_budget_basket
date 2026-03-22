@@ -82,10 +82,10 @@ public class PopupCaculateBill : UIPopup
         {
             var price = item.GetPrice();
             totalPrice += price;
-            await Task.Delay(1200);
+            await Task.Delay(1000);
             SetPrice();
             //await Task.Delay(1000);
-            //SimplePool.Despawn(item.gameObject);
+            SimplePool.Despawn(item.gameObject);
         }
         btnCaculate.interactable = true;
     }

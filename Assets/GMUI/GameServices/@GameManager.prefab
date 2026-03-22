@@ -58,6 +58,7 @@ MonoBehaviour:
     point: 0
     voucherAmount: 0
     gameModeChoose: 0
+    progressVoucher: 0
     isShowRateUs: 0
     dailyRewardClaimedList: 
     stars: 
@@ -132,6 +133,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 72f45f91827e00241937eb2edf06963b, type: 2}
   - {fileID: 11400000, guid: abda41a38c5587445b36487dbbe6d21e, type: 2}
   - {fileID: 11400000, guid: c613e1954235c574d921603a88bbad89, type: 2}
+  - {fileID: 11400000, guid: bde70ed8fc071db43b74050890b4b744, type: 2}
+  - {fileID: 11400000, guid: 803688716f401324c8bed443cd4f2365, type: 2}
+  - {fileID: 11400000, guid: 382bfe6a4a5524f4a9d3254e907c0b65, type: 2}
+  - {fileID: 11400000, guid: deb796e5a06266c45845edfb3b0ead42, type: 2}
+  - {fileID: 11400000, guid: 5470f8731f2c7c74a92ed949001c171d, type: 2}
+  - {fileID: 11400000, guid: 124e0d493a14746439e95aaf33cc69ba, type: 2}
+  - {fileID: 11400000, guid: 810e5676857a53c4a961d0469f1d61d1, type: 2}
+  - {fileID: 11400000, guid: 3f747272ab0421a47811ea2b6eb17a2a, type: 2}
+  - {fileID: 11400000, guid: 2e523f69757942f46b09f82df29eb187, type: 2}
+  - {fileID: 11400000, guid: 8039d04383fc72d42be0d8bf18b42a18, type: 2}
+  IsPlaying: 0
 --- !u!1001 &2998655335922153369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,6 +255,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4178011123730636, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369570644559577547, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
