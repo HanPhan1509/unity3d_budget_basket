@@ -107,9 +107,9 @@ namespace GreiB.UIManager.Scripts.Base
             transitionRight.localPosition = new Vector3 (-2000, 0, 0);
             transitionLeft.localPosition = new Vector3 (2000, 0, 0);
             DOTween.Sequence()
-                .Insert(0, transitionRight.DOLocalMoveX(0, 1f))
-                .Insert(0, transitionLeft.DOLocalMoveX(0, 1f))
-                .SetEase(Ease.Linear)
+                .Insert(0, transitionRight.DOLocalMoveX(0, 0.5f))
+                .Insert(0, transitionLeft.DOLocalMoveX(0, 0.5f))
+                .SetEase(Ease.InQuad)
                 .AppendInterval(1f)
                 .Play().OnComplete(() => { onDone?.Invoke(); });
         }
@@ -119,9 +119,9 @@ namespace GreiB.UIManager.Scripts.Base
             transitionRight.localPosition = new Vector3(0, 0, 0);
             transitionLeft.localPosition = new Vector3(0, 0, 0);
             DOTween.Sequence()
-                .Insert(0, transitionRight.DOLocalMoveX(-2000, 1.3f))
-                .Insert(0, transitionLeft.DOLocalMoveX(2000, 1.3f))
-                .SetEase(Ease.Linear)
+                .Insert(0, transitionRight.DOLocalMoveX(-2000, 1f))
+                .Insert(0, transitionLeft.DOLocalMoveX(2000, 1f))
+                .SetEase(Ease.OutQuad)
                 //.AppendInterval(3f)
                 .Play().OnComplete(() => {
                     transitionRect.SetActive(false);

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static UnityEditor.Progress;
 
 public class PopupLevelSelect : UIPopup
@@ -18,18 +19,13 @@ public class PopupLevelSelect : UIPopup
     protected override void OnShowing()
     {
         base.OnShowing();
-        _items.Reverse();
-        foreach (var item in _items)
-        {
-            SimplePool.Despawn(item.gameObject);
-        }
-        _items.Clear();
-
+        
         var list = GameManager.Instance.levelDatas;
         for (int i = 0; i < list.Count; i++)
         {
             var pref = SimplePool.Spawn(_prefItem, Vector3.zero, Quaternion.identity);
             pref.transform.SetParent(this._scrollRect.content);
+            pref.transform.localScale = Vector3.one;
             var item = pref.GetComponent<LevelSelectItem>();
             if (item)
             {
@@ -37,6 +33,17 @@ public class PopupLevelSelect : UIPopup
                 _items.Add(item);
             }
         }
+    }
+
+    protected override void OnHidden()
+    {
+        base.OnHidden();
+        foreach (var item in _items)
+        {
+            item.transform.SetParent(null);
+            SimplePool.Despawn(item.gameObject);
+        }
+        _items.Clear();
     }
 
     private void OnClickedLevel(int level)

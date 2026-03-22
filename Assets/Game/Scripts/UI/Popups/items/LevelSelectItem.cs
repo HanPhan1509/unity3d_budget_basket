@@ -1,3 +1,4 @@
+using GreiB.GameServices.SaveData;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,6 +6,8 @@ using UnityEngine.UI;
 
 public class LevelSelectItem : MonoBehaviour
 {
+    [SerializeField] private GameObject glock;
+    [SerializeField] private Button btnLevel;
     [SerializeField] private GameObject[] star = new GameObject[3];
     [SerializeField] private Sprite[] bg = new Sprite[2];
     [SerializeField] private Image _img;
@@ -15,6 +18,10 @@ public class LevelSelectItem : MonoBehaviour
     {
         this._index = level;
         this.OnClicked = OnClicked;
+        bool isLock = level > SaveDataHandler.Instance.saveData.level;
+        glock.SetActive(isLock);
+        _text.SetActive(!isLock);
+        btnLevel.interactable = !isLock;
         for (int i = 0; i < star.Length; i++)
         {
             this.star[i].SetActive(i < starCount);

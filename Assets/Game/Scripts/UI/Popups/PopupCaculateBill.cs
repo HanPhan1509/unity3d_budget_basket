@@ -1,19 +1,25 @@
+using _GAME.Scripts;
 using _GAME.Scripts.Controllers;
 using DG.Tweening;
+using GreiB.GameServices.SaveData;
+using GreiB.UIManager.Scripts.Base;
 using GreiB.UIManager.Scripts.UIPopup;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PopupCaculateBill : UIPopup
 {
+    [SerializeField] private GameObject _tabCart;
+    [SerializeField] private GameObject _tabCal;
+
+    [Header("CART")]
     [SerializeField] private GameObject _prefBillItem;
     [SerializeField] private ScrollRect scrollRect;
-    [SerializeField] private GameObject container;
     [SerializeField] private Text _txtPrice;
+
     private List<BillItem> _items = new();
     private LevelData LevelData;
     private float totalPrice = 0;
@@ -23,17 +29,35 @@ public class PopupCaculateBill : UIPopup
         base.OnShowing();
 
         totalPrice = 0;
-        _items.Reverse();
-        _items.ForEach(item => SimplePool.Despawn(item.gameObject));
-
         //param = (PopupLevelTargetParam)Parameter;
+        gBot.SetActive(false);
+        slider.gameObject.SetActive(false);
         LevelData = GameManager.Instance.GetCurrentLevelData();
+        ShowShoppingCart();
+    }
+
+    protected override void OnHidden()
+    {
+        base.OnHidden();
+
+        _items.ForEach(item =>
+        {
+            item.transform.SetParent(null);
+            SimplePool.Despawn(item.gameObject);
+        });
+
+        _items.Clear();
+    }
+
+    private void ShowShoppingCart()
+    {
+        _tabCart.SetActive(true);
+        _tabCal.SetActive(false);
+
+        _txtPrice.text = "$0.0";
+
         var list = GameController.Instance.LstProdutsInCart;
-        title.SetActive(false);
-        bot.SetActive(true);
-        scrollRect.gameObject.SetActive(true);
-        _txtPrice.gameObject.SetActive(true);
-        container.SetActive(false);
+
         foreach (var product in list)
         {
             var pref = SimplePool.Spawn(_prefBillItem, Vector3.zero, Quaternion.identity);
@@ -71,22 +95,33 @@ public class PopupCaculateBill : UIPopup
     }
 
     [Space(5.0f)]
-    [Header("PRICE")]
-    [SerializeField] private GameObject bot;
-    [SerializeField] private GameObject title;
+    [Header("CALCULATOR")]
+    [SerializeField] private GameObject gBot;
+    [SerializeField] private GameObject btnNext;
     [SerializeField] private Text txtTotal;
     [SerializeField] private Text txtDiscountPercent;
     [SerializeField] private Text txtDiscount;
     [SerializeField] private Text txtVatPercent;
     [SerializeField] private Text txtVat;
     [SerializeField] private Text txtGrandTotal;
+
+    [Space(5.0f)]
+    [Header("SLIDER")]
+    [SerializeField] private Slider slider;
+
+    private float grandTotal = 0;
+
     public void Summary()
     {
-        title.SetActive(true);
-        bot.SetActive(false);
+        ShowCaculatorTheBill();
+    }
+
+    private void ShowCaculatorTheBill()
+    {
+        _txtPrice.text = "CALCULATE THE BILL";
+
         _txtPrice.gameObject.SetActive(false);
         scrollRect.gameObject.SetActive(false);
-        container.SetActive(true);
 
         txtTotal.text = $"{totalPrice.ToString("0.0")}";
 
@@ -98,15 +133,83 @@ public class PopupCaculateBill : UIPopup
         float vatAmount = totalPrice * (LevelData.Vat / 100f);
         txtVat.text = $"{vatAmount.ToString("0.0")}";
 
-        var grandTotal = totalPrice - discount + vatAmount;
+        grandTotal = totalPrice - discount + vatAmount;
         //txtGrandTotal.text = $"{grandTotal}";
 
         float currentValue = 0f;
-        DOTween.To(() => currentValue, x => {
+        DOTween.To(() => currentValue, x =>
+        {
             currentValue = x;
             txtGrandTotal.text = currentValue.ToString("0.0"); // format 0.0
-        }, grandTotal, 1.5f);
+        }, grandTotal, 1.5f)
+            .OnComplete(() =>
+            {
+                CheckEndGame();
+            });
     }
 
+    private void CheckEndGame()
+    {
+        float refund = LevelData.BudgetMoney - grandTotal;
+        gBot.SetActive(true);
+        bool isWin = !(refund < 0);
+        btnNext.SetActive(isWin && !GameManager.Instance.IsLastLevel());
 
+        if (isWin)
+        {
+            SaveDataHandler.Instance.saveData.level += 1;
+            slider.gameObject.SetActive(false);
+            SetSlider(refund);
+        }
+    }
+
+    private void SetSlider(float refund)
+    {
+        float progress = SaveDataHandler.Instance.saveData.progressVoucher;
+        slider.value = progress;
+        float temp = 0;
+        if(progress + refund < 1000)
+        {
+            progress += refund;
+            SaveDataHandler.Instance.saveData.progressVoucher += progress;
+            slider.DOValue(progress, 0.1f).OnComplete(() =>
+            {
+
+            });
+        } else
+        {
+            SaveDataHandler.Instance.saveData.voucherAmount += 1;
+            temp = 1000 - (SaveDataHandler.Instance.saveData.progressVoucher + refund);
+            progress = 1000;
+            SaveDataHandler.Instance.saveData.progressVoucher = temp;
+            slider.DOValue(progress, 0.1f).OnComplete(() =>
+            {
+                slider.DOValue(temp, 0.1f).OnComplete(() =>
+                {
+
+                });
+            });
+        }
+    }
+
+    public void Home()
+    {
+        Hide();
+        UIManager.Instance.ShowTransition(() => { SceneManager.LoadScene(GameConstants.SceneMain); });
+    }
+
+    public void Replay()
+    {
+        Hide();
+        UIManager.Instance.ShowTransition(() => { SceneManager.LoadScene(GameConstants.SceneGame); });
+    }
+    public void Next()
+    {
+        Hide();
+        UIManager.Instance.ShowTransition(() =>
+        {
+            GameManager.Instance.SetCurrentLevelData(LevelData.Level + 1);
+            SceneManager.LoadScene(GameConstants.SceneMain);
+        });
+    }
 }

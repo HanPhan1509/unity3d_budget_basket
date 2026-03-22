@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static PopupLevelTarget;
 using static PopupListProducts;
 
@@ -121,11 +122,16 @@ namespace _GAME.Scripts.Controllers
 
         public void CalculateTheBill()
         {
-            this._camera.SetActive(true);
-            this.playerController.StopMove();
-            this.playerController.SetActive(false);
-            this.gameHud.HideAll();
-            UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupCaculateBill);
+            UIManager.Instance.ShowTransition(() => {
+                this._camera.SetActive(true);
+                this.playerController.StopMove();
+                this.playerController.SetActive(false);
+                this.gameHud.HideAll();
+                UIManager.Instance.PopupManager.HidePopup(UIPopupName.SettingPopup); //if any
+                UIManager.Instance.HideTransition(() => {
+                    UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupCaculateBill);
+                });
+            });
         }
 
         private List<Product> _products = new List<Product>();

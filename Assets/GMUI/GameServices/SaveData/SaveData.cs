@@ -15,12 +15,13 @@ namespace GreiB.GameServices.SaveData
 
         public bool tapPlayTutorial;
 
-        public int level = 1;
+        public int level = 0;
         public int currentLevelIndex = 1;
         public int currentDayDailyReward = 1;
         public int point = 0;
         public int voucherAmount = 0;
         public int gameModeChoose = 0;
+        public float progressVoucher = 0;
 
         public bool isShowRateUs;
 
