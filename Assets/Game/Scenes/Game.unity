@@ -15343,6 +15343,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1599478424}
     m_Modifications:
+    - target: {fileID: 44824091826091449, guid: 29ae72dcdbb408946a8ad507061c5d21, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 44824092168320742, guid: 29ae72dcdbb408946a8ad507061c5d21, type: 3}
       propertyPath: m_Name
       value: stall_fruits
@@ -15353,7 +15357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 44824092168320743, guid: 29ae72dcdbb408946a8ad507061c5d21, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.575001
+      value: 4.74
       objectReference: {fileID: 0}
     - target: {fileID: 44824092168320743, guid: 29ae72dcdbb408946a8ad507061c5d21, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15361,7 +15365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 44824092168320743, guid: 29ae72dcdbb408946a8ad507061c5d21, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.3500001
+      value: 3.38
       objectReference: {fileID: 0}
     - target: {fileID: 44824092168320743, guid: 29ae72dcdbb408946a8ad507061c5d21, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15537,12 +15541,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 0.9
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.5, z: 0.2}
+  m_Radius: 0.4
+  m_SlopeLimit: 0
+  m_StepOffset: 0
+  m_SkinWidth: 0.0001
+  m_MinMoveDistance: 0.005
+  m_Center: {x: 0, y: 0.5, z: 0.35}
 --- !u!95 &919132149237622093
 Animator:
   serializedVersion: 5

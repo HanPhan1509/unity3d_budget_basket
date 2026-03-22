@@ -60,9 +60,9 @@ public class PlayerController : MonoBehaviour
         if (move.magnitude > 1f)
             move.Normalize();
 
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        controller.Move(new Vector3(move.x, 0, move.z) * moveSpeed * Time.deltaTime);
 
-        // Gravity
+        //Gravity
         if (controller.isGrounded && velocity.y < 0)
             velocity.y = -2f;
 
