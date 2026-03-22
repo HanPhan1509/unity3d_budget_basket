@@ -26,20 +26,8 @@ namespace GreiB.GameServices.Audio.Scripts
 
         #region GAME PLAY > 100
 
-        Gameplay_PlayerJump = 102,
-        Gameplay_PlayerScore = 103,
-        Gameplay_PlayerLose = 104,
-        Gameplay_TimerRun = 105,
-        Gameplay_WeaponSwitch = 106,
-        Gameplay_WeaponEquip = 107,
-        Gameplay_WeaponUnequip = 108,
-        Gameplay_WeaponPickup = 109,
-        Gameplay_WeaponDrop = 110,
-        Gameplay_WeaponThrow = 111,
-        Gameplay_WeaponImpact = 112,
-        Gameplay_WeaponExplosion = 113,
-        Gameplay_WeaponMelee = 114,
-        Gameplay_WeaponCharge = 115,
+        GP_Type = 101,
+        GP_TAPTAP = 102,
 
         #endregion
     }

@@ -1,6 +1,7 @@
 using _GAME.Scripts;
 using _GAME.Scripts.Controllers;
 using DG.Tweening;
+using GreiB.GameServices.Audio.Scripts;
 using GreiB.GameServices.SaveData;
 using GreiB.UIManager.Scripts.Base;
 using GreiB.UIManager.Scripts.UIPopup;
@@ -19,6 +20,7 @@ public class PopupCaculateBill : UIPopup
     [SerializeField] private GameObject _prefBillItem;
     [SerializeField] private ScrollRect scrollRect;
     [SerializeField] private Text _txtPrice;
+    [SerializeField] private Button btnCaculate;
 
     private List<BillItem> _items = new();
     private LevelData LevelData;
@@ -55,7 +57,7 @@ public class PopupCaculateBill : UIPopup
         _tabCal.SetActive(false);
 
         _txtPrice.text = "$0.0";
-
+        btnCaculate.interactable = false;
         var list = GameController.Instance.LstProdutsInCart;
 
         foreach (var product in list)
@@ -80,17 +82,19 @@ public class PopupCaculateBill : UIPopup
         {
             var price = item.GetPrice();
             totalPrice += price;
-            await Task.Delay(2000);
+            await Task.Delay(1200);
             SetPrice();
             //await Task.Delay(1000);
             //SimplePool.Despawn(item.gameObject);
         }
+        btnCaculate.interactable = true;
     }
 
     private void SetPrice()
     {
         //float rounded = Mathf.Round(totalPrice * 10f) / 10f;
         //_txtPrice.text = $"{rounded.ToString("0.0")}";
+        AudioManager.Instance.PlaySfx(AudioName.GP_TAPTAP);
         _txtPrice.text = $"{totalPrice.ToString("0.0")}";
     }
 
@@ -122,9 +126,6 @@ public class PopupCaculateBill : UIPopup
     {
         _txtPrice.text = "CALCULATE THE BILL...";
 
-        _txtPrice.gameObject.SetActive(false);
-        scrollRect.gameObject.SetActive(false);
-
         txtTotal.text = $"{totalPrice.ToString("0.0")}";
 
         txtDiscountPercent.text = $"Discount ({LevelData.Sale}%)";
@@ -153,16 +154,22 @@ public class PopupCaculateBill : UIPopup
     private void CheckEndGame()
     {
         float refund = LevelData.BudgetMoney - grandTotal;
+        GameController.Instance.GameHud.UpdateMoney(LevelData.BudgetMoney, (int)refund, 1.0f);
         gBot.SetActive(true);
-        bool isWin = !(refund < 0);
+        
+        bool isWin = (refund >= 0);
         btnNext.SetActive(isWin && !GameManager.Instance.IsLastLevel());
-
-        if (isWin && !(LevelData.Level < SaveDataHandler.Instance.saveData.level))
+        //!(LevelData.Level < SaveDataHandler.Instance.saveData.level)
+        if (isWin)
         {
+            AudioManager.Instance.PlaySfx(AudioName.UI_Transition_Door_Ting);
             _txtPrice.text = "VICTORY";
-            SaveDataHandler.Instance.saveData.level += 1;
-            slider.gameObject.SetActive(false);
-            SetSlider(refund);
+            if(LevelData.Level == SaveDataHandler.Instance.saveData.level)
+            {
+                SaveDataHandler.Instance.saveData.level += 1;
+                slider.gameObject.SetActive(true);
+                SetSlider(refund);
+            }
         }
         else
         {
@@ -175,7 +182,7 @@ public class PopupCaculateBill : UIPopup
         float progress = SaveDataHandler.Instance.saveData.progressVoucher;
         slider.value = progress;
         float temp = 0;
-        if(progress + refund < 1000)
+        if (progress + refund < 1000)
         {
             progress += refund;
             SaveDataHandler.Instance.saveData.progressVoucher += progress;
@@ -183,7 +190,8 @@ public class PopupCaculateBill : UIPopup
             {
 
             });
-        } else
+        }
+        else
         {
             SaveDataHandler.Instance.saveData.voucherAmount += 1;
             temp = 1000 - (SaveDataHandler.Instance.saveData.progressVoucher + refund);
@@ -216,7 +224,7 @@ public class PopupCaculateBill : UIPopup
         UIManager.Instance.ShowTransition(() =>
         {
             GameManager.Instance.SetCurrentLevelData(LevelData.Level + 1);
-            SceneManager.LoadScene(GameConstants.SceneMain);
+            SceneManager.LoadScene(GameConstants.SceneGame);
         });
     }
 }

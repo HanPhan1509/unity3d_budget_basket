@@ -76,3 +76,21 @@ MonoBehaviour:
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
+  - audioName: 101
+    type: 0
+    audioClip: {fileID: 8300000, guid: 31df10c8bcccfd8418059ba8999967ce, type: 3}
+    volume: 1
+    priority: 170
+    spatialBlend: 0
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: 102
+    type: 0
+    audioClip: {fileID: 8300000, guid: cf7725e761667da4280f3ab33789c11a, type: 3}
+    volume: 1
+    priority: 170
+    spatialBlend: 0
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0

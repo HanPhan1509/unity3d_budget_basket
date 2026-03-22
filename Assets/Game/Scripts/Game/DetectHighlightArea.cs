@@ -7,12 +7,21 @@ public class DetectHighlightArea : MonoBehaviour
     [SerializeField] private ParticleSystem[] particleSystems;
     private Action<bool> OnShow = null;
 
-    private void Start()
+    public void On()
     {
         foreach (var particleSystem in particleSystems)
         {
+            particleSystem.SetActive(true);
             particleSystem.Play();
         }
+    }
+
+    public void Off()
+    {
+        foreach (var particleSystem in particleSystems)
+        {
+            particleSystem.SetActive(false);
+        }    
     }
 
     public void Set(Action<bool> OnShow)

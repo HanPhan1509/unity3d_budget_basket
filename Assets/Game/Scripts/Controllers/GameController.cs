@@ -20,6 +20,7 @@ namespace _GAME.Scripts.Controllers
         [SerializeField] private Camera _camera;
         [SerializeField] private GameHud gameHud;
         [SerializeField] private PlayerController playerController;
+        [SerializeField] private StallProduct _cashRegister;
 
         private bool _isGamePaused = false;
         private bool _isGameEnded = false;
@@ -75,7 +76,7 @@ namespace _GAME.Scripts.Controllers
                     ShowEndGame();
                     yield break;
                 }
-                if(_isGameEnded)
+                if (_isGameEnded)
                 {
                     break;
                 }
@@ -119,7 +120,8 @@ namespace _GAME.Scripts.Controllers
         public void ShowEndGame()
         {
             _isGameEnded = true;
-            UIManager.Instance.ShowTransition(() => {
+            UIManager.Instance.ShowTransition(() =>
+            {
                 this._camera.SetActive(true);
                 this.playerController.StopMove();
                 this.playerController.SetActive(false);
@@ -168,17 +170,19 @@ namespace _GAME.Scripts.Controllers
         public void UpdateShoppingCart(Product product)
         {
             Product pr = _lstProdutsInCart.Find(x => x.Id.ToString() == product.Id.ToString());
-            
+
             if (pr == null)
             {
                 _lstProdutsInCart.Add(product);
                 this.gameHud.UpdateTarget(product.Id, product.Quantity);
                 UpdateTarget();
+                CheckUnlockCashRegister();
                 return;
             }
             pr.Quantity = product.Quantity;
             this.gameHud.UpdateTarget(pr.Id, pr.Quantity);
             UpdateTarget();
+            CheckUnlockCashRegister();
         }
 
         public void RemoveShoppingCart(Product product)
@@ -195,6 +199,7 @@ namespace _GAME.Scripts.Controllers
             }
             this.gameHud.UpdateTarget(product.Id, pr.Quantity);
             UpdateTarget();
+            CheckUnlockCashRegister();
         }
 
         private void UpdateTarget()
@@ -208,6 +213,13 @@ namespace _GAME.Scripts.Controllers
 
                 this.gameHud.UpdateTarget(_currentStall.StallID, quantity);
             }
+        }
+
+        private void CheckUnlockCashRegister()
+        {
+            bool isAllCompleted = gameHud.IsCompletedAllTarget();
+            Debug.Log($"CheckUnlockCashRegister = {isAllCompleted}");
+            _cashRegister.OnZone(isAllCompleted);
         }
     }
 }

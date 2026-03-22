@@ -1,10 +1,12 @@
 using _GAME.Scripts.Controllers;
 using _GAME.Scripts.Popup;
+using DG.Tweening;
 using GreiB.GameServices.Audio.Scripts;
 using GreiB.UIManager.Scripts.Base;
 using GreiB.UIManager.Scripts.UIPopup;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static PopupListProducts;
@@ -50,7 +52,7 @@ public class GameHud : MonoBehaviour
     public void Set()
     {
         levelData = GameManager.Instance.GetCurrentLevelData();
-        UpdateMoney(levelData.BudgetMoney);
+        UpdateMoney(0, levelData.BudgetMoney, 1.0f);
         UpdateTimer(levelData.Timer);
         UpdateTarget();
     }
@@ -91,7 +93,8 @@ public class GameHud : MonoBehaviour
         {
             //Calculate the bill
             GameController.Instance.CalculateTheBill();
-        } else
+        }
+        else
         {
             //open UI
             UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupListProducts, new PopupListProductsParam { stall = stall });
@@ -99,9 +102,13 @@ public class GameHud : MonoBehaviour
     }
 
     #region MONEY
-    public void UpdateMoney(int money)
+    public void UpdateMoney(int current, int money, float duration)
     {
-        this.txtMoney.text = $"${money}";
+        DOTween.To(() => current, x =>
+        {
+            current = x;
+            this.txtMoney.text = $"${current}";
+        }, money, duration);
     }
     #endregion
 
@@ -163,6 +170,12 @@ public class GameHud : MonoBehaviour
             Debug.Log($"Update stall: {quantity}/{item.TargetStall.amount}");
             item.UpdateQuantityTarget(quantity);
         }
+    }
+
+    public bool IsCompletedAllTarget()
+    {
+        var item = _itemsTarget.Find(x => !x.IsCompleted());
+        return item == null;
     }
     #endregion
 }

@@ -1,6 +1,4 @@
-using _GAME.Scripts.Controllers;
 using System;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,8 +25,8 @@ public class BillItem : MonoBehaviour
             string path = $"products/{product.Id}";
             var sprite = Resources.Load<Sprite>(path);
             imgPreview.sprite = sprite;
-            txtName.text = product.Id.ToString().Replace("_", " ");
-            txtPrice.text = $"Price: {product.Price} x{product.Quantity}";
+            txtName.text = $"Price: {product.Price}";
+            txtPrice.text = $"Quantity: x{product.Quantity}";
 
             var total = product.Quantity * product.Price;
             float discount = total * (GetDiscountPercent() / 100f);

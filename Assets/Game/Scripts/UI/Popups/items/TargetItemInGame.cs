@@ -8,6 +8,7 @@ public class TargetItemInGame : MonoBehaviour
     private TargetStall targetStall;
     private TargetProduct targetProduct;
     private int target = 0;
+    private int _quantity = 0;
 
     public TargetStall TargetStall { get => targetStall; set => targetStall = value; }
     public TargetProduct TargetProduct { get => targetProduct; set => targetProduct = value; }
@@ -16,6 +17,7 @@ public class TargetItemInGame : MonoBehaviour
     {
         this.targetProduct = null;
         this.targetStall = target;
+        _quantity = 0;
         if (image != null)
         {
             string path = $"stalls/{target.stallID}";
@@ -30,6 +32,7 @@ public class TargetItemInGame : MonoBehaviour
     {
         this.targetProduct = target;
         this.targetStall = null;
+        _quantity = 0;
         if (image != null)
         {
             string path = $"products/{target.productID}";
@@ -43,6 +46,12 @@ public class TargetItemInGame : MonoBehaviour
     public void UpdateQuantityTarget(int quantity)
     {
         var number = Mathf.Clamp(quantity, 0, this.target);
+        _quantity = number;
         this.txtAmount.text = $"{number}/{this.target}";
+    }
+
+    public bool IsCompleted()
+    {
+        return _quantity >= this.target;
     }
 }

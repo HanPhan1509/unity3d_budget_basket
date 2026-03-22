@@ -10,6 +10,10 @@ public class StallProduct : MonoBehaviour
     private void Start()
     {
         this.detectHighlightArea.Set(ShowList);
+        if (this.stall.StallID != StallID.CashRegister)
+            OnZone(true);
+        else
+            OnZone(false);
     }
 
     private void ShowList(bool isShow)
@@ -17,6 +21,22 @@ public class StallProduct : MonoBehaviour
         GameController.Instance.SetCurrentStall(isShow ? this.stall : null);
     }
 
+    public void OnZone(bool isOn)
+    {
+        if (isOn)
+        {
+            detectHighlightArea.SetActive(true);
+            detectHighlightArea.On();
+        }
+        else
+        {
+            detectHighlightArea.SetActive(false);
+            detectHighlightArea.Off();
+        }
+    }
+
+
+    //test
     [Header("DATA")]
     public int start = 0;
     public int end = 0;
@@ -38,10 +58,10 @@ public class StallProduct : MonoBehaviour
     public void Reload()
     {
         int index = start;
-        for(int i = 0;  i < this.stall.Products.Count; i++)
+        for (int i = 0; i < this.stall.Products.Count; i++)
         {
             this.stall.Products[i].Id = (ProductID)index;
             index++;
-        }    
+        }
     }
 }

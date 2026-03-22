@@ -21,7 +21,7 @@ MonoBehaviour:
     amount: 2
   - productID: 22
     amount: 1
-  Timer: 5
+  Timer: 150
   Sale: 0
   StallIDs: 0000000001000000
   SaleProducts: []
