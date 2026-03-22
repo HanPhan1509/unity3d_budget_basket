@@ -1,6 +1,7 @@
 using _GAME.Scripts.Controllers;
 using NaughtyAttributes;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class StallProduct : MonoBehaviour
 {
@@ -60,7 +61,8 @@ public class StallProduct : MonoBehaviour
         int index = start;
         for (int i = 0; i < this.stall.Products.Count; i++)
         {
-            this.stall.Products[i].Id = (ProductID)index;
+            //this.stall.Products[i].Id = (ProductID)index;
+            this.stall.Products[i].MaxQuantity = maxQuantity;
             index++;
         }
     }

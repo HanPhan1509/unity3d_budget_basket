@@ -15,9 +15,13 @@ MonoBehaviour:
   Level: 2
   BudgetMoney: 20000
   Vat: 0
-  TargetStalls: []
-  TargetProducts: []
-  Timer: 60
+  TargetStalls:
+  - stallID: 2
+    amount: 7
+  TargetProducts:
+  - productID: 11
+    amount: 4
+  Timer: 30
   Sale: 0
   StallIDs: 0000000001000000
   SaleProducts: []

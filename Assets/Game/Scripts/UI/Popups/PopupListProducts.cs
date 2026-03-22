@@ -54,6 +54,7 @@ public class PopupListProducts : UIPopup
     protected override void OnHidden()
     {
         base.OnHidden();
+        GameController.Instance.PlayerController.AllowMove = true;
         foreach (var child in items)
         {
             child.gameObject.transform.SetParent(null);

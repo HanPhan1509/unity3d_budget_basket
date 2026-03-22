@@ -30,6 +30,7 @@ namespace _GAME.Scripts.Controllers
         private LevelData _levelData;
 
         public List<Product> LstProdutsInCart { get => _lstProdutsInCart; set => _lstProdutsInCart = value; }
+        public PlayerController PlayerController { get => playerController; set => playerController = value; }
 
         public override void Awake()
         {
@@ -109,11 +110,13 @@ namespace _GAME.Scripts.Controllers
         public void PauseGame()
         {
             _isGamePaused = true;
+            playerController.AllowMove = false;
         }
 
         public void ResumeGame()
         {
             _isGamePaused = false;
+            playerController.AllowMove = true;
         }
 
         /// <summary>

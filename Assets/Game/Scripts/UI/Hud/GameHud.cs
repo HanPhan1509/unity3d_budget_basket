@@ -97,6 +97,7 @@ public class GameHud : MonoBehaviour
         else
         {
             //open UI
+            GameController.Instance.PlayerController.AllowMove = false;
             UIManager.Instance.PopupManager.ShowPopup(UIPopupName.PopupListProducts, new PopupListProductsParam { stall = stall });
         }
     }

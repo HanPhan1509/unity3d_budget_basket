@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private Joystick joystick;
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 1.5f;
     [SerializeField] private float gravity = -9.81f;
 
     [Header("Look")]
@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     private bool _allowMove = true;
     private string _currentAnim = "idle";
     private Vector3 velocity;
+
+    public bool AllowMove { get => _allowMove; set => _allowMove = value; }
 
     private void Start()
     {
@@ -36,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         if(_allowMove)
         {
+            moveSpeed = 1.5f;
             HandleMove();
             HandleLook();
 
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviour
             //}
         } else
         {
+            moveSpeed = 0;
             controller.Move(Vector3.zero);
         }
     }

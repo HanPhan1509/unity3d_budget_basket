@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ef7dbeed36efb41b92dc880bbec8e3, type: 3}
   m_Name: Level_12
   m_EditorClassIdentifier: 
-  Level: 4
+  Level: 11
   BudgetMoney: 50000
   Vat: 0
   TargetStalls: []

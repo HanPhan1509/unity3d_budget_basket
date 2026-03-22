@@ -13,11 +13,17 @@ MonoBehaviour:
   m_Name: Level_4
   m_EditorClassIdentifier: 
   Level: 3
-  BudgetMoney: 30000
+  BudgetMoney: 264000
   Vat: 0
-  TargetStalls: []
-  TargetProducts: []
-  Timer: 80
+  TargetStalls:
+  - stallID: 2
+    amount: 15
+  TargetProducts:
+  - productID: 13
+    amount: 12
+  - productID: 20
+    amount: 2
+  Timer: 40
   Sale: 0
   StallIDs: 0000000001000000
   SaleProducts: []

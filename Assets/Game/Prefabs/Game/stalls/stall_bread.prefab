@@ -113,55 +113,55 @@ MonoBehaviour:
     - Id: 53
       Price: 8000
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 10
     - Id: 54
-      Price: 5000
+      Price: 2500
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 10
     - Id: 55
       Price: 15000
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 1
     - Id: 56
       Price: 18000
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 1
     - Id: 57
       Price: 26000
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 1
     - Id: 58
       Price: 4500
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 1
     - Id: 59
       Price: 4500
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 1
     - Id: 60
       Price: 4500
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 1
     - Id: 61
       Price: 4000
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 1
     - Id: 62
       Price: 4500
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 1
     - Id: 63
       Price: 5000
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 1
     - Id: 64
       Price: 6000
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 1
     - Id: 65
       Price: 6000
       Quantity: 0
-      MaxQuantity: 5
+      MaxQuantity: 1
   detectHighlightArea: {fileID: 4977605000014352956}
   start: 53
   end: 63

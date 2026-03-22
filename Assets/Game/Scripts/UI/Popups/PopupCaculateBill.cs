@@ -179,12 +179,13 @@ public class PopupCaculateBill : UIPopup
 
     private void SetSlider(float refund)
     {
+        float bonus = refund / 10;
         float progress = SaveDataHandler.Instance.saveData.progressVoucher;
         slider.value = progress;
         float temp = 0;
-        if (progress + refund < 1000)
+        if (progress + bonus < 1000)
         {
-            progress += refund;
+            progress += bonus;
             SaveDataHandler.Instance.saveData.progressVoucher += progress;
             slider.DOValue(progress, 0.1f).OnComplete(() =>
             {
@@ -194,7 +195,7 @@ public class PopupCaculateBill : UIPopup
         else
         {
             SaveDataHandler.Instance.saveData.voucherAmount += 1;
-            temp = 1000 - (SaveDataHandler.Instance.saveData.progressVoucher + refund);
+            temp = 1000 - (SaveDataHandler.Instance.saveData.progressVoucher + bonus);
             progress = 1000;
             SaveDataHandler.Instance.saveData.progressVoucher = temp;
             slider.DOValue(progress, 0.1f).OnComplete(() =>

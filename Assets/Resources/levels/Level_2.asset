@@ -17,11 +17,9 @@ MonoBehaviour:
   Vat: 0
   TargetStalls:
   - stallID: 6
-    amount: 4
-  - stallID: 2
-    amount: 1
+    amount: 6
   TargetProducts: []
-  Timer: 40
+  Timer: 30
   Sale: 0
   StallIDs: 0000000001000000
   SaleProducts: []
