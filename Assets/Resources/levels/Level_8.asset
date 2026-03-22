@@ -19,7 +19,7 @@ MonoBehaviour:
   TargetProducts:
   - productID: 0
     amount: 5
-  Timer: 100
+  Timer: 160
   Sale: 0
   StallIDs: 0000000001000000
   SaleProducts: []

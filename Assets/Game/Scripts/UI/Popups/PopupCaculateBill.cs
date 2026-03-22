@@ -33,7 +33,7 @@ public class PopupCaculateBill : UIPopup
         totalPrice = 0;
         //param = (PopupLevelTargetParam)Parameter;
         gBot.SetActive(false);
-        slider.gameObject.SetActive(false);
+        //slider.gameObject.SetActive(false);
         LevelData = GameManager.Instance.GetCurrentLevelData();
         ShowShoppingCart();
     }
@@ -109,9 +109,9 @@ public class PopupCaculateBill : UIPopup
     [SerializeField] private Text txtVat;
     [SerializeField] private Text txtGrandTotal;
 
-    [Space(5.0f)]
-    [Header("SLIDER")]
-    [SerializeField] private Slider slider;
+    //[Space(5.0f)]
+    //[Header("SLIDER")]
+    //[SerializeField] private Slider slider;
 
     private float grandTotal = 0;
 
@@ -124,7 +124,7 @@ public class PopupCaculateBill : UIPopup
 
     private void ShowCaculatorTheBill()
     {
-        _txtPrice.text = "CALCULATE THE BILL...";
+        _txtPrice.text = "CALCULATING...";
 
         txtTotal.text = $"{totalPrice.ToString("0.0")}";
 
@@ -138,7 +138,7 @@ public class PopupCaculateBill : UIPopup
 
         grandTotal = totalPrice - discount + vatAmount;
         //txtGrandTotal.text = $"{grandTotal}";
-
+        txtGrandTotal.color = Color.white;
         float currentValue = 0f;
         DOTween.To(() => currentValue, x =>
         {
@@ -162,51 +162,53 @@ public class PopupCaculateBill : UIPopup
         //!(LevelData.Level < SaveDataHandler.Instance.saveData.level)
         if (isWin)
         {
+            txtGrandTotal.color = Color.green;
             AudioManager.Instance.PlaySfx(AudioName.UI_Transition_Door_Ting);
             _txtPrice.text = "VICTORY";
             if(LevelData.Level == SaveDataHandler.Instance.saveData.level)
             {
                 SaveDataHandler.Instance.saveData.level += 1;
-                slider.gameObject.SetActive(true);
-                SetSlider(refund);
+                //slider.gameObject.SetActive(true);
+                //SetSlider(refund);
             }
         }
         else
         {
+            txtGrandTotal.color = Color.red;
             _txtPrice.text = "FAILED";
         }
     }
 
-    private void SetSlider(float refund)
-    {
-        float bonus = refund / 10;
-        float progress = SaveDataHandler.Instance.saveData.progressVoucher;
-        slider.value = progress;
-        float temp = 0;
-        if (progress + bonus < 1000)
-        {
-            progress += bonus;
-            SaveDataHandler.Instance.saveData.progressVoucher += progress;
-            slider.DOValue(progress, 0.1f).OnComplete(() =>
-            {
+    //private void SetSlider(float refund)
+    //{
+    //    float bonus = refund / 10;
+    //    float progress = SaveDataHandler.Instance.saveData.progressVoucher;
+    //    slider.value = progress;
+    //    float temp = 0;
+    //    if (progress + bonus < 1000)
+    //    {
+    //        progress += bonus;
+    //        SaveDataHandler.Instance.saveData.progressVoucher += progress;
+    //        slider.DOValue(progress, 0.1f).OnComplete(() =>
+    //        {
 
-            });
-        }
-        else
-        {
-            SaveDataHandler.Instance.saveData.voucherAmount += 1;
-            temp = 1000 - (SaveDataHandler.Instance.saveData.progressVoucher + bonus);
-            progress = 1000;
-            SaveDataHandler.Instance.saveData.progressVoucher = temp;
-            slider.DOValue(progress, 0.1f).OnComplete(() =>
-            {
-                slider.DOValue(temp, 0.1f).OnComplete(() =>
-                {
+    //        });
+    //    }
+    //    else
+    //    {
+    //        SaveDataHandler.Instance.saveData.voucherAmount += 1;
+    //        temp = 1000 - (SaveDataHandler.Instance.saveData.progressVoucher + bonus);
+    //        progress = 1000;
+    //        SaveDataHandler.Instance.saveData.progressVoucher = temp;
+    //        slider.DOValue(progress, 0.1f).OnComplete(() =>
+    //        {
+    //            slider.DOValue(temp, 0.1f).OnComplete(() =>
+    //            {
 
-                });
-            });
-        }
-    }
+    //            });
+    //        });
+    //    }
+    //}
 
     public void Home()
     {
