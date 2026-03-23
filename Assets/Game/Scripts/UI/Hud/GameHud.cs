@@ -10,7 +10,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static PopupListProducts;
-using static UnityEditor.Progress;
 
 public class GameHud : MonoBehaviour
 {

@@ -1,7 +1,6 @@
 using _GAME.Scripts.Controllers;
 using NaughtyAttributes;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class StallProduct : MonoBehaviour
 {
