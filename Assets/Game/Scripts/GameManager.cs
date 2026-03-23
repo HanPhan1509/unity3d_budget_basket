@@ -20,9 +20,4 @@ public class GameManager : ManualSingletonMono<GameManager>
     {
         return _currentLevelData;
     }
-
-    public bool IsLastLevel()
-    {
-        return _currentLevelData.Level == levelDatas[^1].Level;
-    }
 }

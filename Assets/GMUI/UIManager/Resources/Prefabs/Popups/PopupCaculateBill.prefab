@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71fe371ab24643cabecc9fed3e20594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {x: 666.6666, y: -20, z: 0}
+  StartPosition: {x: 0, y: 0, z: 0}
   StartRotation: {x: -0, y: 0, z: 0}
   StartScale: {x: 1, y: 1, z: 1}
   StartAlpha: 1
@@ -1424,7 +1424,6 @@ MonoBehaviour:
   txtVatPercent: {fileID: 2274164124046284138}
   txtVat: {fileID: 9047473997613119227}
   txtGrandTotal: {fileID: 2562488029458873664}
-  slider: {fileID: 1485353335182195556}
 --- !u!1 &853572206405914418
 GameObject:
   m_ObjectHideFlags: 0
@@ -3625,7 +3624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71fe371ab24643cabecc9fed3e20594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {x: 400, y: -20, z: 0}
+  StartPosition: {x: 0, y: 0, z: 0}
   StartRotation: {x: -0, y: 0, z: 0}
   StartScale: {x: 1, y: 1, z: 1}
   StartAlpha: 1
@@ -4940,7 +4939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71fe371ab24643cabecc9fed3e20594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {x: 133.33333, y: -20, z: 0}
+  StartPosition: {x: 0, y: 0, z: 0}
   StartRotation: {x: -0, y: 0, z: 0}
   StartScale: {x: 1, y: 1, z: 1}
   StartAlpha: 1

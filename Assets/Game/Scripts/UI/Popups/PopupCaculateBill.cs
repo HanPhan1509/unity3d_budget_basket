@@ -156,16 +156,15 @@ public class PopupCaculateBill : UIPopup
         float refund = LevelData.BudgetMoney - grandTotal;
         GameController.Instance.GameHud.UpdateMoney(LevelData.BudgetMoney, (int)refund, 1.0f);
         gBot.SetActive(true);
-        
+
         bool isWin = (refund >= 0);
-        btnNext.SetActive(isWin && !GameManager.Instance.IsLastLevel());
-        //!(LevelData.Level < SaveDataHandler.Instance.saveData.level)
+        btnNext.SetActive(isWin && !(LevelData.Level == GameManager.Instance.levelDatas[^1].Level));
         if (isWin)
         {
             txtGrandTotal.color = Color.green;
             AudioManager.Instance.PlaySfx(AudioName.UI_Transition_Door_Ting);
             _txtPrice.text = "VICTORY";
-            if(LevelData.Level == SaveDataHandler.Instance.saveData.level)
+            if (LevelData.Level == SaveDataHandler.Instance.saveData.level)
             {
                 SaveDataHandler.Instance.saveData.level += 1;
                 //slider.gameObject.SetActive(true);
