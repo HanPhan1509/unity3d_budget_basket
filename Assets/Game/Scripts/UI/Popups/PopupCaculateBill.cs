@@ -30,7 +30,6 @@ public class PopupCaculateBill : UIPopup
     {
         base.OnShowing();
 
-        totalPrice = 0;
         //param = (PopupLevelTargetParam)Parameter;
         gBot.SetActive(false);
         //slider.gameObject.SetActive(false);
@@ -80,6 +79,7 @@ public class PopupCaculateBill : UIPopup
 
     private async Task CaculatePriceAsync()
     {
+        totalPrice = 0;
         foreach (var item in _items)
         {
             var price = item.GetPrice();

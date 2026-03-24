@@ -20,6 +20,7 @@ public class BillItem : MonoBehaviour
 
     public void UpdateViewAsync()
     {
+        finalPrice = 0;
         if (product != null)
         {
             string path = $"products/{product.Id}";
@@ -28,9 +29,9 @@ public class BillItem : MonoBehaviour
             txtName.text = $"Price: {product.Price}";
             txtPrice.text = $"Quantity: x{product.Quantity}";
 
-            var total = product.Quantity * product.Price;
-            float discount = total * (GetDiscountPercent() / 100f);
-            finalPrice = total - discount;
+            finalPrice = product.Quantity * product.Price;
+            //float discount = total * (GetDiscountPercent() / 100f);
+            //finalPrice = total - discount;
             txtTotal.text = $"${Mathf.Max(finalPrice, 0f)}";
 
             //bool isInShoppingCart = GameController.Instance.IsInShoppingCart(product.Id);

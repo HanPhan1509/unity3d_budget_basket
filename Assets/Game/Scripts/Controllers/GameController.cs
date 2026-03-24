@@ -74,14 +74,14 @@ namespace _GAME.Scripts.Controllers
             while (timeLeft >= 0)
             {
                 gameHud.UpdateTimer(timeLeft);
-                if (timeLeft <= 0)
-                {
-                    ShowEndGame();
-                    yield break;
-                }
                 if (_isGameEnded)
                 {
                     break;
+                }
+                if (!_isGameEnded && timeLeft <= 0)
+                {
+                    ShowEndGame();
+                    yield break;
                 }
                 yield return new WaitForSeconds(1f);
                 if (_isGamePaused) continue;
