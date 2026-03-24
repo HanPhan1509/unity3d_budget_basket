@@ -967,7 +967,7 @@ MonoBehaviour:
   parent: {fileID: 2537708595115931436}
   txtSale: {fileID: 5964214045582449711}
   sale: {fileID: 475168205493102754}
-  prefab: {fileID: 8100442961326054065, guid: 21316445f17aca74da5704e6db848873, type: 3}
+  prefab: {fileID: 4551020473659964956, guid: 21316445f17aca74da5704e6db848873, type: 3}
 --- !u!223 &4155112042307896422
 Canvas:
   m_ObjectHideFlags: 0

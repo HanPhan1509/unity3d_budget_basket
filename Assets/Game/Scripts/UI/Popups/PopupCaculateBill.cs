@@ -17,7 +17,7 @@ public class PopupCaculateBill : UIPopup
     [SerializeField] private GameObject _tabCal;
 
     [Header("CART")]
-    [SerializeField] private GameObject _prefBillItem;
+    [SerializeField] private BillItem _prefBillItem;
     [SerializeField] private ScrollRect scrollRect;
     [SerializeField] private Text _txtPrice;
     [SerializeField] private Button btnCaculate;
@@ -60,13 +60,15 @@ public class PopupCaculateBill : UIPopup
         btnCaculate.interactable = false;
         var list = GameController.Instance.LstProdutsInCart;
 
+        _items.Clear();
         foreach (var product in list)
         {
-            var pref = SimplePool.Spawn(_prefBillItem, Vector3.zero, Quaternion.identity);
+            var pref = SimplePool.Spawn(_prefBillItem.gameObject, Vector3.zero, Quaternion.identity);
+            pref.transform.SetParent(scrollRect.content);
+            pref.transform.SetSiblingIndex(scrollRect.content.childCount - 1);
             var item = pref.GetComponent<BillItem>();
             if (item != null)
             {
-                item.transform.SetParent(scrollRect.content);
                 item.gameObject.transform.localScale = Vector3.one;
                 item.Set(product);
                 _items.Add(item);

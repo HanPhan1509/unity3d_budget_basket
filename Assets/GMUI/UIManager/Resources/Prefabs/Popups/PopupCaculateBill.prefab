@@ -1412,7 +1412,7 @@ MonoBehaviour:
     StartScale: {x: 1, y: 1, z: 1}
   _tabCart: {fileID: 853572207539425006}
   _tabCal: {fileID: 6742186897126435887}
-  _prefBillItem: {fileID: 4078810163182914428, guid: d411938c74aa7dc47a763bbaecc779f7, type: 3}
+  _prefBillItem: {fileID: 7768929103419154405, guid: d411938c74aa7dc47a763bbaecc779f7, type: 3}
   scrollRect: {fileID: 4715911044604645187}
   _txtPrice: {fileID: 4056588388781242475}
   btnCaculate: {fileID: 1929197091831643663}

@@ -12,7 +12,7 @@ public class PopupLevelTarget : UIPopup
         public Action OnPlay;
     }
 
-    [SerializeField] private GameObject prefTarget;
+    [SerializeField] private TargetItem prefTarget;
     [SerializeField] private Text txtLevel;
     [SerializeField] private Text txtTime;
     [SerializeField] private Text txtVat;
@@ -27,9 +27,6 @@ public class PopupLevelTarget : UIPopup
     protected override void OnShowing()
     {
         base.OnShowing();
-
-        _items.Reverse();
-        _items.ForEach(item => SimplePool.Despawn(item.gameObject));
 
         param = (PopupLevelTargetParam)Parameter;
         LevelData = GameManager.Instance.GetCurrentLevelData();
@@ -49,30 +46,33 @@ public class PopupLevelTarget : UIPopup
 
             foreach (var tg in LevelData.TargetStalls)
             {
-                var pref = SimplePool.Spawn(prefTarget, Vector3.zero, Quaternion.identity);
+                var pref = SimplePool.Spawn(prefTarget.gameObject, Vector3.zero, Quaternion.identity);
+                pref.transform.SetParent(parent);
+                pref.transform.SetSiblingIndex(parent.childCount - 1);
                 var item = pref.GetComponent<TargetItem>();
-                if (item != null)
-                {
-                    item.transform.SetParent(parent);
-                    item.gameObject.transform.localScale = Vector3.one;
-                    item.Set(tg);
-                    _items.Add(item);
-                }
+                item.gameObject.transform.localScale = Vector3.one;
+                item.Set(tg);
+                _items.Add(item);
             }
 
             foreach (var tg in LevelData.TargetProducts)
             {
-                var pref = SimplePool.Spawn(prefTarget, Vector3.zero, Quaternion.identity);
+                var pref = SimplePool.Spawn(prefTarget.gameObject, Vector3.zero, Quaternion.identity);
+                pref.transform.SetParent(parent);
+                pref.transform.SetSiblingIndex(parent.childCount - 1);
                 var item = pref.GetComponent<TargetItem>();
-                if (item != null)
-                {
-                    item.transform.SetParent(parent);
-                    item.gameObject.transform.localScale = Vector3.one;
-                    item.Set(tg);
-                    _items.Add(item);
-                }
+                item.gameObject.transform.localScale = Vector3.one;
+                item.Set(tg);
+                _items.Add(item);
             }
         }
+    }
+
+    protected override void OnHidden()
+    {
+        base.OnHidden();
+        _items.ForEach(x => SimplePool.Despawn(x.gameObject));
+        _items.Clear();
     }
 
     public void OnClicked()

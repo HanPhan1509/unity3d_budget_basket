@@ -16,7 +16,7 @@ public class PopupListProducts : UIPopup
     [SerializeField] private Transform parent;
     [SerializeField] private Text txtSale;
     [SerializeField] private GameObject sale;
-    [SerializeField] private GameObject prefab;
+    [SerializeField] private ProductItem prefab;
     private List<ProductItem> items = new();
 
     protected override void OnShowing()
@@ -38,8 +38,9 @@ public class PopupListProducts : UIPopup
             Debug.Log($"================{param.stall.StallID} - {param.stall.Products.Count}");
             foreach (var pro in param.stall.Products)
             {
-                var go = SimplePool.Spawn(prefab, Vector3.zero, Quaternion.identity);
+                var go = SimplePool.Spawn(prefab.gameObject, Vector3.zero, Quaternion.identity);
                 go.transform.SetParent(parent);
+                go.transform.SetSiblingIndex(parent.childCount - 1);
                 go.transform.localScale = Vector3.one;
                 var productItem = go.GetComponent<ProductItem>();
                 if (productItem != null)
@@ -59,9 +60,9 @@ public class PopupListProducts : UIPopup
         GameController.Instance.PlayerController.AllowMove = true;
         foreach (var child in items)
         {
-            child.gameObject.transform.SetParent(null);
             SimplePool.Despawn(child.gameObject);
         }
+        items.Clear();
     }
 
     private void Get(ProductItem productItem)
