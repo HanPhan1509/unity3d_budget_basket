@@ -157,7 +157,7 @@ public class PopupCaculateBill : UIPopup
         GameController.Instance.GameHud.UpdateMoney(LevelData.BudgetMoney, (int)refund, 1.0f);
         gBot.SetActive(true);
 
-        bool isWin = (refund >= 0);
+        bool isWin = (refund == 0);
         btnNext.SetActive(isWin && !(LevelData.Level == GameManager.Instance.levelDatas[^1].Level));
         if (isWin)
         {
