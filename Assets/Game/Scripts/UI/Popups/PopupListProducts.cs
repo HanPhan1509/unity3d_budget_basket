@@ -3,7 +3,6 @@ using GreiB.UIManager.Scripts.UIPopup;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class PopupListProducts : UIPopup
 {
