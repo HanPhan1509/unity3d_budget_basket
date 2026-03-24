@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Level_6
   m_EditorClassIdentifier: 
   Level: 5
-  BudgetMoney: 56500
+  BudgetMoney: 125000
   Vat: 0
   TargetStalls:
   - stallID: 4
-    amount: 1
+    amount: 2
   TargetProducts:
   - productID: 32
     amount: 1

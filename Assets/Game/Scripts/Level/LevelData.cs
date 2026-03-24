@@ -14,6 +14,7 @@ public class LevelData : ScriptableObject
     public int Sale; //Storewide sale - sale toan cua hang
     public List<StallID> StallIDs = new(); //Luu nhung id prefab se create trong level do??
     public List<SaleProduct> SaleProducts = new();
+    public List<TargetProduct> results = new();
 
     public SaleProduct IsSaleForStall(StallID stallId)
     {
