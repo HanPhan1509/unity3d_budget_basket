@@ -13,6 +13,7 @@ public class PopupListProducts : UIPopup
 
     [SerializeField] private Text txtNameStall;
     [SerializeField] private ScrollRect scrollView;
+    [SerializeField] private Transform parent;
     [SerializeField] private Text txtSale;
     [SerializeField] private GameObject sale;
     [SerializeField] private GameObject prefab;
@@ -38,7 +39,7 @@ public class PopupListProducts : UIPopup
             foreach (var pro in param.stall.Products)
             {
                 var go = SimplePool.Spawn(prefab, Vector3.zero, Quaternion.identity);
-                go.transform.SetParent(scrollView.content);
+                go.transform.SetParent(parent);
                 go.transform.localScale = Vector3.one;
                 var productItem = go.GetComponent<ProductItem>();
                 if (productItem != null)

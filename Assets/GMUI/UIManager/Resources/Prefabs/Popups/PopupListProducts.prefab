@@ -964,6 +964,7 @@ MonoBehaviour:
     StartScale: {x: 1, y: 1, z: 1}
   txtNameStall: {fileID: 5852867567450228662}
   scrollView: {fileID: 3277473270687892428}
+  parent: {fileID: 2537708595115931436}
   txtSale: {fileID: 5964214045582449711}
   sale: {fileID: 475168205493102754}
   prefab: {fileID: 8100442961326054065, guid: 21316445f17aca74da5704e6db848873, type: 3}
