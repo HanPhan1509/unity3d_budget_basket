@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class PopupCaculateBill : UIPopup
 {
@@ -22,7 +23,7 @@ public class PopupCaculateBill : UIPopup
     [SerializeField] private Text _txtPrice;
     [SerializeField] private Button btnCaculate;
 
-    private List<BillItem> _items = new();
+    [SerializeField] private List<BillItem> _items = new();
     private LevelData LevelData;
     private float totalPrice = 0;
 
@@ -57,18 +58,15 @@ public class PopupCaculateBill : UIPopup
 
         _txtPrice.text = "$0.0";
         btnCaculate.interactable = false;
-        var list = GameController.Instance.LstProdutsInCart;
 
         _items.Clear();
-        foreach (var product in list)
+        foreach (var product in GameController.Instance.LstProdutsInCart)
         {
-            var pref = SimplePool.Spawn(_prefBillItem.gameObject, Vector3.zero, Quaternion.identity);
-            pref.transform.SetParent(scrollRect.content);
-            pref.transform.SetSiblingIndex(scrollRect.content.childCount - 1);
+            var pref = Instantiate(_prefBillItem.gameObject, Vector3.zero, Quaternion.identity, scrollRect.content);
+            pref.gameObject.transform.localScale = Vector3.one;
             var item = pref.GetComponent<BillItem>();
             if (item != null)
             {
-                item.gameObject.transform.localScale = Vector3.one;
                 item.Set(product);
                 _items.Add(item);
             }
@@ -79,17 +77,19 @@ public class PopupCaculateBill : UIPopup
 
     private async Task CaculatePriceAsync()
     {
+        await Task.Delay(2000);
         totalPrice = 0;
         foreach (var item in _items)
         {
             var price = item.GetPrice();
             totalPrice += price;
-            await Task.Delay(1000);
+            await Task.Delay(1500);
             SetPrice();
             //await Task.Delay(1000);
-            SimplePool.Despawn(item.gameObject);
+            Destroy(item.gameObject);
         }
         btnCaculate.interactable = true;
+        _items.Clear();
     }
 
     private void SetPrice()

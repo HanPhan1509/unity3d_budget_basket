@@ -20,10 +20,13 @@ public class PopupLevelSelect : UIPopup
         base.OnShowing();
         
         var list = GameManager.Instance.levelDatas;
+        if(_items.Count > 0 )
+        {
+            return;
+        }
         for (int i = 0; i < list.Count; i++)
         {
-            var pref = SimplePool.Spawn(_prefItem, Vector3.zero, Quaternion.identity);
-            pref.transform.SetParent(this._scrollRect.content);
+            var pref = Instantiate(_prefItem, Vector3.zero, Quaternion.identity, this._scrollRect.content);
             pref.transform.localScale = Vector3.one;
             var item = pref.GetComponent<LevelSelectItem>();
             if (item)
@@ -34,16 +37,6 @@ public class PopupLevelSelect : UIPopup
         }
     }
 
-    protected override void OnHidden()
-    {
-        base.OnHidden();
-        foreach (var item in _items)
-        {
-            item.transform.SetParent(null);
-            SimplePool.Despawn(item.gameObject);
-        }
-        _items.Clear();
-    }
 
     private void OnClickedLevel(int level)
     {

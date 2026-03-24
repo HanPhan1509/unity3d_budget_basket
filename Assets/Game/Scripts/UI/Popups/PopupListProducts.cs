@@ -36,33 +36,39 @@ public class PopupListProducts : UIPopup
 
             //txtNameStall.text = param.stall.StallID.ToString().Replace("_", " ");
             Debug.Log($"================{param.stall.StallID} - {param.stall.Products.Count}");
-            foreach (var pro in param.stall.Products)
+            for (int i = 0; i < param.stall.Products.Count; i++)
             {
-                var go = SimplePool.Spawn(prefab.gameObject, Vector3.zero, Quaternion.identity);
-                go.transform.SetParent(parent);
-                go.transform.SetSiblingIndex(parent.childCount - 1);
-                go.transform.localScale = Vector3.one;
-                var productItem = go.GetComponent<ProductItem>();
+                Product pr = param.stall.Products[i];
+                var productItem = GetItem(i);
                 if (productItem != null)
                 {
-                    Debug.Log($"{pro.Id}");
-                    productItem.Set(pro, Get, Return);
-                    items.Add(productItem);
+                    productItem.Set(pr, Get, Return);
                 }
             }
         }
         scrollView.verticalNormalizedPosition = 1;
     }
 
+    private ProductItem GetItem(int index)
+    {
+        if (index >= items.Count)
+        {
+            var go = Instantiate(prefab.gameObject, Vector3.zero, Quaternion.identity, parent);
+            go.transform.localScale = Vector3.one;
+            var productItem = go.GetComponent<ProductItem>();
+            items.Add(productItem);
+            return productItem;
+        }
+        else
+        {
+            return items[index];
+        }
+    }
+
     protected override void OnHidden()
     {
         base.OnHidden();
         GameController.Instance.PlayerController.AllowMove = true;
-        foreach (var child in items)
-        {
-            SimplePool.Despawn(child.gameObject);
-        }
-        items.Clear();
     }
 
     private void Get(ProductItem productItem)

@@ -46,7 +46,7 @@ public class PopupLevelTarget : UIPopup
 
             foreach (var tg in LevelData.TargetStalls)
             {
-                var pref = SimplePool.Spawn(prefTarget.gameObject, Vector3.zero, Quaternion.identity);
+                var pref = Instantiate(prefTarget.gameObject, Vector3.zero, Quaternion.identity);
                 pref.transform.SetParent(parent);
                 pref.transform.SetSiblingIndex(parent.childCount - 1);
                 var item = pref.GetComponent<TargetItem>();
@@ -57,7 +57,7 @@ public class PopupLevelTarget : UIPopup
 
             foreach (var tg in LevelData.TargetProducts)
             {
-                var pref = SimplePool.Spawn(prefTarget.gameObject, Vector3.zero, Quaternion.identity);
+                var pref = Instantiate(prefTarget.gameObject, Vector3.zero, Quaternion.identity);
                 pref.transform.SetParent(parent);
                 pref.transform.SetSiblingIndex(parent.childCount - 1);
                 var item = pref.GetComponent<TargetItem>();
@@ -71,7 +71,7 @@ public class PopupLevelTarget : UIPopup
     protected override void OnHidden()
     {
         base.OnHidden();
-        _items.ForEach(x => SimplePool.Despawn(x.gameObject));
+        _items.ForEach(x => Destroy(x.gameObject));
         _items.Clear();
     }
 
