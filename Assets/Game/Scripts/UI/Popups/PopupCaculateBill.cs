@@ -156,6 +156,7 @@ public class PopupCaculateBill : UIPopup
     private void CheckEndGame()
     {
         float refund = LevelData.BudgetMoney - grandTotal;
+        Debug.Log($"Refund {refund} = {LevelData.BudgetMoney} - {grandTotal}");
         GameController.Instance.GameHud.UpdateMoney(LevelData.BudgetMoney, (int)refund, 1.0f);
         gBot.SetActive(true);
 

@@ -3,6 +3,7 @@ using GreiB.UIManager.Scripts.UIPopup;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class PopupListProducts : UIPopup
 {
@@ -43,6 +44,7 @@ public class PopupListProducts : UIPopup
                 if (productItem != null)
                 {
                     productItem.Set(pr, Get, Return);
+                    productItem.SetActive(true);
                 }
             }
         }
@@ -68,6 +70,7 @@ public class PopupListProducts : UIPopup
     protected override void OnHidden()
     {
         base.OnHidden();
+        items.ForEach(item => item.SetActive(false));
         GameController.Instance.PlayerController.AllowMove = true;
     }
 
