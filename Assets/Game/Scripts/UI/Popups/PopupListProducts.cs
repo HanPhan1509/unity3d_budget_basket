@@ -1,7 +1,6 @@
 using _GAME.Scripts.Controllers;
 using GreiB.UIManager.Scripts.UIPopup;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +34,7 @@ public class PopupListProducts : UIPopup
             }
 
             //txtNameStall.text = param.stall.StallID.ToString().Replace("_", " ");
+            Debug.Log($"================{param.stall.StallID} - {param.stall.Products.Count}");
             foreach (var pro in param.stall.Products)
             {
                 var go = SimplePool.Spawn(prefab, Vector3.zero, Quaternion.identity);
@@ -43,6 +43,7 @@ public class PopupListProducts : UIPopup
                 var productItem = go.GetComponent<ProductItem>();
                 if (productItem != null)
                 {
+                    Debug.Log($"{pro.Id}");
                     productItem.Set(pro, Get, Return);
                     items.Add(productItem);
                 }
