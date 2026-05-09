@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424146fe8ff145348b854e7bea61bb32, type: 3}
+  m_Name: AudioDatabase
+  m_EditorClassIdentifier: 
+  audioDataList:
+  - audioName: 0
+    type: 1
+    audioClip: {fileID: 8300000, guid: b54c13a93e891b844817b43c07722a5a, type: 3}
+    volume: 1
+    priority: 256
+    spatialBlend: 0
+    source: {fileID: 0}
+    isLooping: 1
+    playOnAwake: 0
+  - audioName: 1
+    type: 1
+    audioClip: {fileID: 8300000, guid: b54c13a93e891b844817b43c07722a5a, type: 3}
+    volume: 1
+    priority: 170
+    spatialBlend: 0
+    source: {fileID: 0}
+    isLooping: 1
+    playOnAwake: 0
+  - audioName: 11
+    type: 0
+    audioClip: {fileID: 8300000, guid: d757af41afbaf8b469befcc875de92c6, type: 3}
+    volume: 1
+    priority: 170
+    spatialBlend: 0
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: 12
+    type: 0
+    audioClip: {fileID: 8300000, guid: bfdb87965d20373418a3fd402922acad, type: 3}
+    volume: 1
+    priority: 170
+    spatialBlend: 0
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: 13
+    type: 0
+    audioClip: {fileID: 8300000, guid: c768268612f350340acdada42fe18385, type: 3}
+    volume: 1
+    priority: 170
+    spatialBlend: 0
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: 14
+    type: 0
+    audioClip: {fileID: 8300000, guid: fc1d2450f5aa7804aa3f37cb3dc81b9e, type: 3}
+    volume: 1
+    priority: 170
+    spatialBlend: 0
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: 15
+    type: 0
+    audioClip: {fileID: 8300000, guid: 61f6f5cf9b67d684790c0b6d8326f532, type: 3}
+    volume: 1
+    priority: 170
+    spatialBlend: 0
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: 101
+    type: 0
+    audioClip: {fileID: 8300000, guid: 31df10c8bcccfd8418059ba8999967ce, type: 3}
+    volume: 1
+    priority: 170
+    spatialBlend: 0
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: 102
+    type: 0
+    audioClip: {fileID: 8300000, guid: cf7725e761667da4280f3ab33789c11a, type: 3}
+    volume: 1
+    priority: 170
+    spatialBlend: 0
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0

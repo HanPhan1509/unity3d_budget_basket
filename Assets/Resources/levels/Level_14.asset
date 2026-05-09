@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ef7dbeed36efb41b92dc880bbec8e3, type: 3}
+  m_Name: Level_14
+  m_EditorClassIdentifier: 
+  Level: 13
+  BudgetMoney: 55000
+  Vat: 10
+  TargetStalls:
+  - stallID: 6
+    amount: 3
+  TargetProducts:
+  - productID: 44
+    amount: 1
+  - productID: 57
+    amount: 1
+  Timer: 160
+  Sale: 0
+  StallIDs: 0000000001000000
+  SaleProducts: []
+  results:
+  - productID: 65
+    amount: 2

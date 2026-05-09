@@ -1,0 +1,82 @@
+using System;
+using _GAME.Scripts.Controllers;
+using GreiB.GameServices.Audio.Scripts;
+using GreiB.UIManager.Scripts.Base;
+using GreiB.UIManager.Scripts.UIPopup;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+namespace _GAME.Scripts.Popup
+{
+    public class SettingPopupParam
+    {
+        public bool showGroupBtn;
+    }
+
+    public class SettingPopup : UIPopup
+    {
+        [Serializable]
+        struct SettingLanguageItemData
+        {
+            public int languageId;
+            public Sprite icon;
+            public string name;
+        }
+
+        [SerializeField] private Slider musicSetting;
+        [SerializeField] private Slider audiSetting;
+        [SerializeField] private GameObject groupBtn;
+
+        public void OnClickExit()
+        {
+            Hide();
+            UIManager.Instance.ShowTransition(() => { SceneManager.LoadScene(GameConstants.SceneMain); });
+        }
+
+        public void OnClickPlayAgain()
+        {
+            Hide();
+            UIManager.Instance.ShowTransition(() => { SceneManager.LoadScene(GameConstants.SceneGame); });
+        }
+
+        protected override void OnShowing()
+        {
+            base.OnShowing();
+
+            musicSetting.SetValueWithoutNotify(AudioManager.Instance!.musicVolume);
+            audiSetting.SetValueWithoutNotify(AudioManager.Instance!.audioVolume);
+
+            var param = (SettingPopupParam)Parameter;
+            if (param != null)
+            {
+                groupBtn.SetActive(param.showGroupBtn);
+            }
+
+            if(GameManager.Instance.IsPlaying)
+            {
+                GameController.Instance.PauseGame();
+            }
+        }
+
+        protected override void OnHiding()
+        {
+            base.OnHiding();
+            AudioManager.Instance.SaveAudioSetting();
+            if (GameManager.Instance.IsPlaying)
+            {
+                GameController.Instance.ResumeGame();
+            }
+        }
+
+        public void OnChangeMusic(float value)
+        {
+            AudioManager.Instance.SetMusicVolume(value);
+        }
+
+        public void OnChangeAudio(float value)
+        {
+            AudioManager.Instance.SetAudioVolume(value);
+        }
+    }
+}
